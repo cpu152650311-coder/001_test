@@ -1,7 +1,9 @@
 {
-	"name": "yansir-starter-template",
+	"name": "my-project",
 	"version": "0.1.0",
 	"private": true,
+	"description": "My Next.js Project",
+	"author": "MyCompany",
 	"type": "module",
 	"scripts": {
 		"build": "next build",

@@ -1,101 +1,521 @@
 'use client'
 
-import { Button } from '@/components/ui/button'
-import { Skeleton } from '@/components/ui/skeleton'
-import { useCounterStore } from '@/store/counter'
-import { Minus, Plus, RefreshCcw } from 'lucide-react'
-import { useEffect, useState } from 'react'
-import { toast } from 'sonner'
+import Link from 'next/link'
+import Image from 'next/image'
+import { useModalStore } from '@/store/modal'
 
-/**
- * @description 这只是个示例页面，你可以随意修改这个页面或进行全面重构
- */
-export default function StartTemplatePage() {
-	const { count, increment, decrement, reset } = useCounterStore()
-	const [isLoading, setIsLoading] = useState(true)
+const partners = [
+  { name: 'Marriott', src: 'https://placehold.co/140x48/F1F5F9/94A3B8?text=Marriott' },
+  { name: 'Hilton', src: 'https://placehold.co/140x48/F1F5F9/94A3B8?text=Hilton' },
+  { name: 'IHG', src: 'https://placehold.co/140x48/F1F5F9/94A3B8?text=IHG' },
+  { name: 'Siemens', src: 'https://placehold.co/140x48/F1F5F9/94A3B8?text=Siemens' },
+  { name: 'Bosch', src: 'https://placehold.co/140x48/F1F5F9/94A3B8?text=Bosch' },
+  { name: 'Foxconn', src: 'https://placehold.co/140x48/F1F5F9/94A3B8?text=Foxconn' },
+  { name: 'SF Express', src: 'https://placehold.co/140x48/F1F5F9/94A3B8?text=SF+Express' },
+  { name: 'JD.com', src: 'https://placehold.co/140x48/F1F5F9/94A3B8?text=JD.com' },
+  { name: 'ByteDance', src: 'https://placehold.co/140x48/F1F5F9/94A3B8?text=ByteDance' },
+  { name: 'Alibaba', src: 'https://placehold.co/140x48/F1F5F9/94A3B8?text=Alibaba' },
+  { name: 'Ping An', src: 'https://placehold.co/140x48/F1F5F9/94A3B8?text=Ping+An' },
+  { name: 'CITIC', src: 'https://placehold.co/140x48/F1F5F9/94A3B8?text=CITIC' },
+]
 
-	useEffect(() => {
-		// 确保loading至少显示200毫秒
-		const timer = setTimeout(() => {
-			setIsLoading(false)
-		}, 200)
+const products = [
+  {
+    name: 'CADEBOT L100',
+    badge: 'Delivery',
+    badgeColor: 'bg-brand-light text-brand',
+    desc: 'Autonomous delivery robot for hotels, hospitals, and office buildings.',
+    features: ['40 kg load capacity', 'Multi-elevator navigation', 'Smart obstacle avoidance'],
+    href: '/products/cadebot-l100',
+    img: '/images/home/cadebot-l100.png',
+    imgAlt: 'CADEBOT L100 Delivery Robot',
+  },
+  {
+    name: 'CLEINBOT M79',
+    badge: 'Cleaning',
+    badgeColor: 'bg-teal-light text-teal',
+    desc: 'Intelligent floor-cleaning robot for large commercial spaces.',
+    features: ['2,000 m²/h efficiency', 'Auto-return docking', 'Multi-surface support'],
+    href: '/products/cleinbot-m79',
+    img: '/images/home/cleinbot-m79.png',
+    imgAlt: 'CLEINBOT M79 Cleaning Robot',
+  },
+  {
+    name: 'CLEINBOT CC201',
+    badge: 'Sweeping',
+    badgeColor: 'bg-teal-light text-teal',
+    desc: 'Commercial sweeping robot with deep-clean capabilities for outdoor & indoor areas.',
+    features: ['AI path planning', 'Auto dust-bin emptying', 'Weather-resistant'],
+    href: '/products/cleinbot-cc201',
+    img: '/images/home/cleinbot-cc201.png',
+    imgAlt: 'CLEINBOT CC201 Sweeping Robot',
+  },
+  {
+    name: 'CRUZR',
+    badge: 'Service',
+    badgeColor: 'bg-brand-light text-brand',
+    desc: 'Humanoid customer-service robot with voice interaction and facial recognition.',
+    features: ['Natural voice interaction', 'Facial recognition', 'App ecosystem'],
+    href: '/products/cruzr',
+    img: '/images/home/cruzr.png',
+    imgAlt: 'CRUZR Service Robot',
+  },
+]
 
-		return () => clearTimeout(timer)
-	}, [])
+const solutions = [
+  {
+    title: 'Hospitality',
+    desc: 'Automate in-room delivery, concierge, and lobby service — reduce operating costs by up to 35%.',
+    img: 'https://placehold.co/600x400/EFF6FF/0066FF?text=Hospitality+Solution', // → /images/home/solution-hospitality.jpg
+    icon: '🏨',
+  },
+  {
+    title: 'Healthcare',
+    desc: 'Contactless medication delivery, patient guidance, and cleaning in clinical environments.',
+    img: 'https://placehold.co/600x400/F0FDFA/00D4AA?text=Healthcare+Solution', // → /images/home/solution-healthcare.jpg
+    icon: '🏥',
+  },
+  {
+    title: 'Commercial & Retail',
+    desc: 'Boost customer experience with AI-powered product navigation and autonomous floor cleaning.',
+    img: 'https://placehold.co/600x400/EFF6FF/0066FF?text=Commercial+Solution', // → /images/home/solution-commercial.jpg
+    icon: '🏢',
+  },
+]
 
-	const handleIncrement = () => {
-		const success = increment()
-		if (!success) {
-			toast.error('已达到最大值 (10)')
-		}
-	}
+const cases = [
+  {
+    company: 'Marriott International',
+    result: 'Deployed 120+ CADEBOT units across 18 properties — reduced delivery labor costs by 40%.',
+    category: 'Hospitality',
+    color: 'from-brand to-brand-hover',
+  },
+  {
+    company: 'Shenzhen University Hospital',
+    result: 'CLEINBOT M79 handles overnight disinfection across 30,000 m² of clinical space.',
+    category: 'Healthcare',
+    color: 'from-teal to-teal-hover',
+  },
+  {
+    company: 'Foxconn Industrial Park',
+    result: 'Fleet of 60 CADEBOT units enabled 24/7 parts delivery, cutting logistics time by 60%.',
+    category: 'Manufacturing',
+    color: 'from-brand to-teal',
+  },
+]
 
-	const handleDecrement = () => {
-		const success = decrement()
-		if (!success) {
-			toast.error('已达到最小值 (0)')
-		}
-	}
+const techHighlights = [
+  { icon: '🧠', title: 'SLAM Navigation', desc: 'Centimeter-accurate real-time positioning in dynamic environments — no magnetic strips required.' },
+  { icon: '👁️', title: 'Computer Vision', desc: '3D depth cameras and multi-sensor fusion for reliable object detection and safety compliance.' },
+  { icon: '🗣️', title: 'Voice AI', desc: 'Multi-language NLP engine with >95% recognition rate in noisy real-world settings.' },
+  { icon: '☁️', title: 'Cloud Fleet Management', desc: 'Monitor, schedule, and update your entire robot fleet remotely from a single dashboard.' },
+]
 
-	const handleReset = () => {
-		reset()
-		toast.success('计数器已重置为 0')
-	}
+const news = [
+  {
+    date: 'Feb 2025',
+    tag: 'Product',
+    title: 'CADEBOT L100 Gen 2 Launches with 60% Improved Battery Life',
+    summary: 'The new generation features a 48V lithium pack and smart charging, enabling 20-hour continuous operation.',
+    img: 'https://placehold.co/600x380/EFF6FF/0066FF?text=CADEBOT+Gen+2', // → /images/home/news-cadebot-gen2.jpg
+  },
+  {
+    date: 'Jan 2025',
+    tag: 'Partnership',
+    title: 'UBTECH Signs Strategic Partnership with Siemens Smart Infrastructure',
+    summary: 'The collaboration will integrate UBTECH robots into Siemens building management systems across 30+ countries.',
+    img: 'https://placehold.co/600x380/F0FDFA/00D4AA?text=Siemens+Partnership', // → /images/home/news-siemens-partnership.jpg
+  },
+  {
+    date: 'Dec 2024',
+    tag: 'Award',
+    title: 'CLEINBOT M79 Wins CES 2025 Innovation Award in Robotics Category',
+    summary: 'Recognized for breakthrough autonomous navigation and industry-leading cleaning efficiency.',
+    img: 'https://placehold.co/600x380/EFF6FF/0066FF?text=CES+2025+Award', // → /images/home/news-ces2025-award.jpg
+  },
+]
 
-	return (
-		<main className="flex min-h-screen flex-col items-center justify-center bg-gray-100 p-8">
-			
-			<div className="space-y-8 text-center">
-				<h1 className="font-medium text-2xl text-gray-900">
+export default function HomePage() {
+  const { openModal } = useModalStore()
 
-					初始化模板
-				</h1>
-				
-				<div className="space-y-4">
-					<div className="flex h-16 items-center justify-center font-bold text-4xl text-gray-900">
-						{isLoading ? (
-							<Skeleton className="h-8 w-8 bg-gray-200" />
-						) : (
-							count
-						)}
-					</div>
-					
-					<div className="flex justify-center gap-4">
-						<Button 
-							onClick={handleDecrement}
-							variant="outline"
-							disabled={count === 0 || isLoading}
-						>
-							<Minus className="h-4 w-4 text-gray-600" />
-						</Button>
-						
-						<Button 
-							onClick={handleReset}
-							variant="outline"
-							disabled={isLoading}
-						>
-							<RefreshCcw className="h-4 w-4 text-gray-600" />
-						</Button>
-						
-						<Button 
-							onClick={handleIncrement}
-							variant="outline"
-							disabled={count === 10 || isLoading}
-						>
-							<Plus className="h-4 w-4 text-gray-600" />
-						</Button>
-					</div>
-					
-					<div className="flex flex-col gap-2">
-						<p className="text-gray-600 text-sm">
-							玩玩看 👆 这只是个演示
-						</p>
-						<p className="text-gray-500 text-sm">
-							范围: 0-10 | 自动保存到浏览器本地
-						</p>
-					</div>
-				</div>
-			</div>
-		</main>
-	)
+  return (
+    <main className="text-ink">
+
+      {/* ─── HERO ─────────────────────────────────────────────────────── */}
+      <section className="relative overflow-hidden bg-white pt-24 pb-20">
+        {/* Dot-grid background */}
+        <div className="dot-grid-bg absolute inset-0 opacity-[0.35] pointer-events-none" />
+        {/* Gradient orbs */}
+        <div className="absolute -top-48 -right-48 w-[600px] h-[600px] rounded-full opacity-[0.07] blur-3xl pointer-events-none"
+          style={{ background: 'var(--color-brand)' }} />
+        <div className="absolute -bottom-32 -left-32 w-80 h-80 rounded-full opacity-[0.06] blur-3xl pointer-events-none"
+          style={{ background: 'var(--color-teal)' }} />
+
+        <div className="container mx-auto px-6 relative z-10">
+          <div className="grid lg:grid-cols-2 gap-16 items-center min-h-[580px]">
+
+            {/* Left: Text */}
+            <div className="space-y-8 animate-fadeInUp">
+              {/* Badge — no stock code */}
+              <div className="inline-flex items-center gap-2 bg-brand-light border border-brand/20 px-4 py-2 rounded-full">
+                <span className="w-2 h-2 rounded-full bg-brand animate-pulse" />
+                <span className="text-sm font-semibold text-brand">Award-winning AI Robotics Platform</span>
+              </div>
+
+              <h1 className="text-5xl lg:text-[3.5rem] font-black text-ink leading-[1.1] tracking-tight">
+                Intelligent<br />
+                <span className="gradient-text">Service Robots</span><br />
+                for Modern Business
+              </h1>
+
+              <p className="text-xl text-ink-muted leading-relaxed max-w-lg">
+                AI-powered robots that handle delivery, cleaning, and customer interaction —
+                24/7, zero downtime. Trusted by 500+ global enterprises across 100+ countries.
+              </p>
+
+              {/* CTAs */}
+              <div className="flex flex-col sm:flex-row gap-4 pt-2">
+                <button
+                  onClick={openModal}
+                  className="inline-flex items-center justify-center gap-2 bg-brand text-white px-8 py-4 rounded-xl font-bold text-base hover:bg-brand-hover hover:shadow-lg hover:-translate-y-0.5 transition-all duration-200 animate-pulse-glow"
+                >
+                  Get a Free Quote →
+                </button>
+                <Link
+                  href="/products/cruzr"
+                  className="inline-flex items-center justify-center gap-2 border-2 border-line text-ink px-8 py-4 rounded-xl font-bold text-base hover:border-brand hover:text-brand transition-all duration-200"
+                >
+                  Explore Products
+                </Link>
+              </div>
+
+              {/* Stats */}
+              <div className="grid grid-cols-3 gap-6 pt-6 border-t border-line">
+                {[
+                  { val: '1,800+', label: 'Patents Filed' },
+                  { val: '100+', label: 'Countries' },
+                  { val: '50,000+', label: 'Robots Deployed' },
+                ].map((s) => (
+                  <div key={s.label}>
+                    <div className="text-3xl font-black text-brand">{s.val}</div>
+                    <div className="text-sm text-ink-subtle mt-1">{s.label}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Right: Hero image */}
+            <div className="relative animate-fadeInUp" style={{ animationDelay: '0.25s' }}>
+              <div className="relative rounded-3xl overflow-hidden"
+                style={{ background: 'linear-gradient(135deg, #EFF6FF 0%, #F0FDFA 100%)' }}>
+                <div className="p-8">
+                  {/* /images/home/hero-robot.png */}
+                  <Image
+                    src="/images/home/hero-robot.png"
+                    alt="UBTECH AI Service Robot"
+                    width={560}
+                    height={560}
+                    priority
+                    className="w-full object-contain drop-shadow-2xl animate-float"
+                  />
+                </div>
+              </div>
+
+              {/* Floating badge */}
+              <div className="absolute -bottom-4 -right-4 bg-white rounded-2xl p-4 shadow-xl border border-line">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-xl bg-brand flex items-center justify-center flex-shrink-0">
+                    <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                    </svg>
+                  </div>
+                  <div>
+                    <div className="text-lg font-black text-ink">ISO 13482</div>
+                    <div className="text-xs text-ink-subtle">Safety Certified</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ─── TRUSTED BY ────────────────────────────────────────────────── */}
+      <section className="bg-surface-subtle border-y border-line py-12">
+        <div className="container mx-auto px-6">
+          <p className="text-center text-sm font-semibold text-ink-subtle uppercase tracking-widest mb-8">
+            Trusted by global enterprises
+          </p>
+          <div className="grid grid-cols-4 md:grid-cols-6 lg:grid-cols-12 gap-4 items-center">
+            {partners.map((p) => (
+              <div key={p.name} className="flex items-center justify-center">
+                {/* /images/home/partner-{name}.png */}
+                <Image
+                  src={p.src}
+                  alt={p.name}
+                  width={100}
+                  height={36}
+                  className="h-8 w-auto opacity-50 hover:opacity-80 transition-opacity grayscale hover:grayscale-0"
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ─── PRODUCTS ──────────────────────────────────────────────────── */}
+      <section className="bg-surface-subtle py-24">
+        <div className="container mx-auto px-6">
+          <div className="text-center mb-16 space-y-4">
+            <span className="inline-block text-xs font-bold uppercase tracking-widest text-brand bg-brand-light px-4 py-1.5 rounded-full">
+              Product Line
+            </span>
+            <h2 className="text-4xl font-black text-ink">Four Robots. One Platform.</h2>
+            <p className="text-lg text-ink-muted max-w-2xl mx-auto">
+              From delivery to deep cleaning to customer service — deploy the right robot for every scenario.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {products.map((p) => (
+              <div key={p.name} className="bg-white rounded-2xl border border-line card-hover overflow-hidden flex flex-col">
+                <div className="h-56 flex items-center justify-center p-8 bg-surface-subtle">
+                  {/* {p.img} — 替换为本地图片时更新 src */}
+                  <Image
+                    src={`https://placehold.co/280x280/F1F5F9/94A3B8?text=${encodeURIComponent(p.name)}`}
+                    alt={p.imgAlt}
+                    width={220}
+                    height={220}
+                    className="h-full w-auto object-contain"
+                  />
+                </div>
+                <div className="p-6 flex flex-col flex-1">
+                  <div className="flex items-start justify-between mb-3 gap-2">
+                    <h3 className="text-lg font-bold text-ink">{p.name}</h3>
+                    <span className={`text-xs font-bold px-2.5 py-1 rounded-full whitespace-nowrap flex-shrink-0 ${p.badgeColor}`}>
+                      {p.badge}
+                    </span>
+                  </div>
+                  <p className="text-sm text-ink-muted mb-4 flex-1">{p.desc}</p>
+                  <ul className="space-y-1.5 mb-5">
+                    {p.features.map((f) => (
+                      <li key={f} className="flex items-center gap-2 text-sm text-ink-muted">
+                        <span className="w-1.5 h-1.5 rounded-full bg-brand flex-shrink-0" />
+                        {f}
+                      </li>
+                    ))}
+                  </ul>
+                  <div className="flex gap-2 mt-auto">
+                    <Link
+                      href={p.href}
+                      className="flex-1 text-center border border-line text-ink text-sm font-semibold py-2.5 rounded-lg hover:border-brand hover:text-brand transition-colors"
+                    >
+                      Learn More
+                    </Link>
+                    <button
+                      onClick={openModal}
+                      className="flex-1 bg-brand text-white text-sm font-semibold py-2.5 rounded-lg hover:bg-brand-hover transition-colors"
+                    >
+                      Get Quote
+                    </button>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ─── SOLUTIONS ─────────────────────────────────────────────────── */}
+      <section className="bg-white py-24">
+        <div className="container mx-auto px-6">
+          <div className="text-center mb-16 space-y-4">
+            <span className="inline-block text-xs font-bold uppercase tracking-widest text-teal bg-teal-light px-4 py-1.5 rounded-full">
+              Solutions
+            </span>
+            <h2 className="text-4xl font-black text-ink">Built for Your Industry</h2>
+            <p className="text-lg text-ink-muted max-w-2xl mx-auto">
+              Purpose-built robot solutions tailored to the workflows and compliance requirements of each vertical.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            {solutions.map((s) => (
+              <div key={s.title} className="bg-white rounded-2xl border border-line card-hover overflow-hidden group">
+                <div className="h-52 relative overflow-hidden">
+                  {/* /images/solutions/{slug}.jpg */}
+                  <Image
+                    src={s.img}
+                    alt={s.title}
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                </div>
+                <div className="p-6">
+                  <div className="flex items-center gap-3 mb-3">
+                    <span className="text-2xl">{s.icon}</span>
+                    <h3 className="text-xl font-bold text-ink">{s.title}</h3>
+                  </div>
+                  <p className="text-ink-muted text-sm leading-relaxed mb-5">{s.desc}</p>
+                  <Link
+                    href="/solutions"
+                    className="inline-flex items-center text-sm font-semibold text-brand hover:gap-2 gap-1.5 transition-all"
+                  >
+                    View Case Studies →
+                  </Link>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ─── CASE STUDIES ──────────────────────────────────────────────── */}
+      <section className="bg-surface-subtle py-24">
+        <div className="container mx-auto px-6">
+          <div className="text-center mb-16 space-y-4">
+            <span className="inline-block text-xs font-bold uppercase tracking-widest text-brand bg-brand-light px-4 py-1.5 rounded-full">
+              Success Stories
+            </span>
+            <h2 className="text-4xl font-black text-ink">Real Results, Real Enterprises</h2>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-6">
+            {cases.map((c) => (
+              <div key={c.company} className="bg-white rounded-2xl border border-line overflow-hidden card-hover">
+                <div className={`h-2 bg-gradient-to-r ${c.color}`} />
+                <div className="p-7">
+                  <span className="text-xs font-bold uppercase tracking-widest text-ink-subtle">{c.category}</span>
+                  <h3 className="text-lg font-bold text-ink mt-2 mb-3">{c.company}</h3>
+                  <p className="text-ink-muted text-sm leading-relaxed">{c.result}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="text-center mt-12">
+            <button
+              onClick={openModal}
+              className="inline-flex items-center gap-2 border-2 border-brand text-brand font-bold px-8 py-4 rounded-xl hover:bg-brand hover:text-white transition-all duration-200"
+            >
+              Discuss Your Use Case →
+            </button>
+          </div>
+        </div>
+      </section>
+
+      {/* ─── TECHNOLOGY ────────────────────────────────────────────────── */}
+      <section className="bg-white py-24">
+        <div className="container mx-auto px-6">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <div className="space-y-6">
+              <span className="inline-block text-xs font-bold uppercase tracking-widest text-teal bg-teal-light px-4 py-1.5 rounded-full">
+                Core Technology
+              </span>
+              <h2 className="text-4xl font-black text-ink">
+                Built on a Decade of<br />
+                <span className="gradient-text">AI Research</span>
+              </h2>
+              <p className="text-lg text-ink-muted leading-relaxed">
+                1,800+ patents across navigation, computer vision, and speech AI.
+                Our technology stack is designed for enterprise reliability — not lab demonstrations.
+              </p>
+              <button
+                onClick={openModal}
+                className="inline-flex items-center gap-2 bg-brand text-white px-7 py-3.5 rounded-xl font-bold hover:bg-brand-hover transition-colors"
+              >
+                Request a Tech Demo →
+              </button>
+            </div>
+
+            <div className="grid sm:grid-cols-2 gap-5">
+              {techHighlights.map((t) => (
+                <div key={t.title} className="bg-surface-subtle rounded-2xl p-6 border border-line hover:border-brand/30 hover:bg-brand-light/30 transition-all duration-200">
+                  <div className="text-3xl mb-4">{t.icon}</div>
+                  <h4 className="font-bold text-ink mb-2">{t.title}</h4>
+                  <p className="text-sm text-ink-muted leading-relaxed">{t.desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ─── NEWS ──────────────────────────────────────────────────────── */}
+      <section className="bg-surface-subtle py-24">
+        <div className="container mx-auto px-6">
+          <div className="flex items-end justify-between mb-14 flex-wrap gap-4">
+            <div className="space-y-3">
+              <span className="inline-block text-xs font-bold uppercase tracking-widest text-brand bg-brand-light px-4 py-1.5 rounded-full">
+                Latest News
+              </span>
+              <h2 className="text-4xl font-black text-ink">News & Updates</h2>
+            </div>
+            <Link href="/support" className="text-brand font-semibold hover:underline text-sm">
+              View all →
+            </Link>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            {news.map((n) => (
+              <article key={n.title} className="bg-white rounded-2xl border border-line overflow-hidden card-hover">
+                <div className="h-48 relative">
+                  {/* /images/home/news-{slug}.jpg */}
+                  <Image
+                    src={n.img}
+                    alt={n.title}
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+                <div className="p-6">
+                  <div className="flex items-center gap-3 mb-3">
+                    <span className="text-xs font-bold bg-brand-light text-brand px-2.5 py-1 rounded-full">{n.tag}</span>
+                    <span className="text-xs text-ink-subtle">{n.date}</span>
+                  </div>
+                  <h3 className="font-bold text-ink leading-snug mb-3 line-clamp-2">{n.title}</h3>
+                  <p className="text-sm text-ink-muted line-clamp-3">{n.summary}</p>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ─── FINAL CTA ─────────────────────────────────────────────────── */}
+      <section className="relative overflow-hidden py-28">
+        <div className="hero-gradient absolute inset-0" />
+        <div className="absolute inset-0 dot-grid-bg opacity-10" />
+        <div className="container mx-auto px-6 relative z-10 text-center">
+          <div className="max-w-3xl mx-auto space-y-8">
+            <h2 className="text-4xl lg:text-5xl font-black text-white leading-tight">
+              Ready to Deploy Intelligent Robots<br />in Your Business?
+            </h2>
+            <p className="text-xl text-white/80 leading-relaxed">
+              Get a free consultation with our robotics specialists. We&apos;ll design a solution
+              tailored to your specific operational needs and ROI targets.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <button
+                onClick={openModal}
+                className="inline-flex items-center justify-center gap-2 bg-white text-brand px-10 py-4 rounded-xl font-bold text-lg hover:shadow-2xl hover:-translate-y-1 transition-all duration-200"
+              >
+                Request Free Consultation →
+              </button>
+              <Link
+                href="/products/cruzr"
+                className="inline-flex items-center justify-center gap-2 border-2 border-white/50 text-white px-10 py-4 rounded-xl font-bold text-lg hover:bg-white/10 transition-all duration-200"
+              >
+                View All Products
+              </Link>
+            </div>
+            <p className="text-white/50 text-sm">
+              No commitment required · Response within 24 hours · Available in 100+ countries
+            </p>
+          </div>
+        </div>
+      </section>
+
+    </main>
+  )
 }
