@@ -44,3 +44,9 @@ yarn-error.log*
 
 # idea files
 .idea
+
+# large PDF files (add manually when needed)
+/public/pdfs/*.pdf
+
+# generation scripts (contain sensitive config)
+commit-msg.txt
