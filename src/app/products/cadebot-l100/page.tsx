@@ -20,10 +20,10 @@ const specs = [
 ]
 
 const scenarios = [
-  { title: 'Restaurants & Cafés', points: ['Deliver food from kitchen to tables', 'Return dirty dishes to washing area', 'Reduce staff walking distance by 70%'] },
-  { title: 'Hotels & Resorts', points: ['24/7 room service delivery', 'Linen & amenities transport', 'Enhance guest experience & ratings'] },
-  { title: 'Hospitals & Clinics', points: ['Medicine & meal delivery to wards', 'Medical waste & linen collection', 'Reduce infection risk & nurse workload'] },
-  { title: 'Corporate Offices', points: ['Inter-department document delivery', 'Cafeteria food distribution', 'Modern workplace image upgrade'] },
+  { title: 'Restaurants & Cafés', img: '/images/products/cadebot-l100/scene-restaurant.jpg', points: ['Deliver food from kitchen to tables', 'Return dirty dishes to washing area', 'Reduce staff walking distance by 70%'] },
+  { title: 'Hotels & Resorts', img: '/images/products/cadebot-l100/scene-hotel.jpg', points: ['24/7 room service delivery', 'Linen & amenities transport', 'Enhance guest experience & ratings'] },
+  { title: 'Hospitals & Clinics', img: '/images/products/cadebot-l100/scene-hospital.jpg', points: ['Medicine & meal delivery to wards', 'Medical waste & linen collection', 'Reduce infection risk & nurse workload'] },
+  { title: 'Corporate Offices', img: '/images/products/cadebot-l100/scene-office.jpg', points: ['Inter-department document delivery', 'Cafeteria food distribution', 'Modern workplace image upgrade'] },
 ]
 
 const faqs = [
@@ -35,9 +35,9 @@ const faqs = [
 ]
 
 const related = [
-  { name: 'CLEINBOT M79', cat: 'Smart Cleaning Robot', desc: 'Autonomous floor scrubbing. 2,000 m²/h efficiency.', href: '/products/cleinbot-m79' },
-  { name: 'CLEINBOT CC201', cat: 'Sweeping Robot', desc: 'Deep cleaning for hotels & offices. IoT-enabled.', href: '/products/cleinbot-cc201' },
-  { name: 'CRUZR', cat: 'Humanoid Service Robot', desc: 'Interactive reception & guidance. Perfect for retail.', href: '/products/cruzr' },
+  { name: 'CLEINBOT M79', img: '/images/home/cleinbot-m79.png', cat: 'Smart Cleaning Robot', desc: 'Autonomous floor scrubbing. 2,000 m²/h efficiency.', href: '/products/cleinbot-m79' },
+  { name: 'CLEINBOT CC201', img: '/images/home/cleinbot-cc201.png', cat: 'Sweeping Robot', desc: 'Deep cleaning for hotels & offices. IoT-enabled.', href: '/products/cleinbot-cc201' },
+  { name: 'CRUZR', img: '/images/home/cruzr.png', cat: 'Humanoid Service Robot', desc: 'Interactive reception & guidance. Perfect for retail.', href: '/products/cruzr' },
 ]
 
 export default function CadebotL100Page() {
@@ -82,7 +82,7 @@ export default function CadebotL100Page() {
             <div className="flex justify-center animate-fadeInUp" style={{ animationDelay: '0.25s' }}>
               {/* /images/products/cadebot-l100/hero-robot.png */}
               <Image
-                src="https://placehold.co/520x620/FFFFFF/0066FF?text=CADEBOT+L100"
+                src="/images/products/cadebot-l100/hero-robot.png"
                 alt="CADEBOT L100 Smart Delivery Robot"
                 width={520}
                 height={620}
@@ -139,7 +139,7 @@ export default function CadebotL100Page() {
           <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-14 items-start">
             {/* /images/products/cadebot-l100/tech-drawing.png */}
             <Image
-              src="https://placehold.co/560x700/F8FAFC/0066FF?text=CADEBOT+L100+Technical+Drawing"
+              src="/images/products/cadebot-l100/tech-drawing.png"
               alt="CADEBOT L100 Technical Drawing"
               width={560}
               height={700}
@@ -153,9 +153,9 @@ export default function CadebotL100Page() {
                 </div>
               ))}
               <div className="mt-7">
-                <button onClick={openModal} className="w-full bg-ink text-white py-4 rounded-xl font-bold hover:bg-ink-muted transition text-center flex items-center justify-center gap-2">
+                <a href="/pdfs/ubtech-cadebot-l100-multi-scene-intelligent-delivery-robot.pdf" download className="w-full bg-ink text-white py-4 rounded-xl font-bold hover:bg-ink-muted transition text-center flex items-center justify-center gap-2 no-underline">
                   📥 Download Full Datasheet (PDF)
-                </button>
+                </a>
               </div>
             </div>
           </div>
@@ -176,7 +176,7 @@ export default function CadebotL100Page() {
                 <div className="h-44 relative">
                   {/* /images/products/cadebot-l100/scenario-{name}.jpg */}
                   <Image
-                    src={`https://placehold.co/360x176/EFF6FF/0066FF?text=${encodeURIComponent(sc.title)}`}
+                    src={sc.img}
                     alt={sc.title}
                     fill
                     className="object-cover"
@@ -206,7 +206,7 @@ export default function CadebotL100Page() {
               <div className="min-h-80 relative">
                 {/* /images/products/cadebot-l100/case-haidilao.jpg */}
                 <Image
-                  src="https://placehold.co/640x480/1A1A1A/00D4AA?text=Haidilao+Case+Study"
+                  src="/images/products/cadebot-l100/case-haidilao.jpg"
                   alt="Haidilao Case Study"
                   fill
                   className="object-cover"
@@ -272,7 +272,7 @@ export default function CadebotL100Page() {
             {related.map((r) => (
               <div key={r.name} className="bg-white rounded-2xl overflow-hidden border border-line card-hover">
                 <div className="h-48 hero-gradient flex items-center justify-center p-6">
-                  <Image src={`https://placehold.co/300x280/FFFFFF/00D4AA?text=${encodeURIComponent(r.name)}`} alt={r.name} width={240} height={200} className="h-full w-auto object-contain" />
+                  <Image src={r.img} alt={r.name} width={240} height={200} className="h-full w-auto object-contain" />
                 </div>
                 <div className="p-6">
                   <h3 className="text-lg font-bold text-ink">{r.name}</h3>

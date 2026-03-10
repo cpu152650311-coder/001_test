@@ -20,10 +20,10 @@ const specs = [
 ]
 
 const scenarios = [
-  { title: 'Shopping Malls', points: ['Clean open concourses overnight', 'Automated multi-level scheduling', 'Reduce custodial headcount by 50%'] },
-  { title: 'International Airports', points: ['24/7 terminal floor cleaning', 'Works alongside passengers safely', 'GPS-level tracking per zone'] },
-  { title: 'Hotels & Lobbies', points: ['Silent night cleaning mode', 'Auto-return to dock before opening', 'Hygiene audit logs for compliance'] },
-  { title: 'Hospitals & Clinics', points: ['Clinical-grade disinfection cycles', 'UV-C add-on module available', 'HIS-integrated scheduling'] },
+  { title: 'Shopping Malls', img: '/images/products/cleinbot-m79/scene-shopping-mall.jpg', points: ['Clean open concourses overnight', 'Automated multi-level scheduling', 'Reduce custodial headcount by 50%'] },
+  { title: 'International Airports', img: '/images/products/cleinbot-m79/scene-airport.jpg', points: ['24/7 terminal floor cleaning', 'Works alongside passengers safely', 'GPS-level tracking per zone'] },
+  { title: 'Hotels & Lobbies', img: '/images/products/cleinbot-m79/scene-hotel-lobby.jpg', points: ['Silent night cleaning mode', 'Auto-return to dock before opening', 'Hygiene audit logs for compliance'] },
+  { title: 'Hospitals & Clinics', img: '/images/products/cleinbot-m79/scene-hospital-clinic.jpg', points: ['Clinical-grade disinfection cycles', 'UV-C add-on module available', 'HIS-integrated scheduling'] },
 ]
 
 const faqs = [
@@ -34,9 +34,9 @@ const faqs = [
 ]
 
 const related = [
-  { name: 'CADEBOT L100', cat: 'Smart Delivery Robot', desc: 'Autonomous delivery for restaurants, hotels, and hospitals.', href: '/products/cadebot-l100' },
-  { name: 'CLEINBOT CC201', cat: 'Sweeping Robot', desc: 'Outdoor & indoor sweeping for large commercial areas.', href: '/products/cleinbot-cc201' },
-  { name: 'CRUZR', cat: 'Humanoid Service Robot', desc: 'AI-powered reception and customer guidance robot.', href: '/products/cruzr' },
+  { name: 'CADEBOT L100', img: '/images/home/cadebot-l100.png', cat: 'Smart Delivery Robot', desc: 'Autonomous delivery for restaurants, hotels, and hospitals.', href: '/products/cadebot-l100' },
+  { name: 'CLEINBOT CC201', img: '/images/home/cleinbot-cc201.png', cat: 'Sweeping Robot', desc: 'Outdoor & indoor sweeping for large commercial areas.', href: '/products/cleinbot-cc201' },
+  { name: 'CRUZR', img: '/images/home/cruzr.png', cat: 'Humanoid Service Robot', desc: 'AI-powered reception and customer guidance robot.', href: '/products/cruzr' },
 ]
 
 export default function CleinbotM79Page() {
@@ -80,7 +80,7 @@ export default function CleinbotM79Page() {
             </div>
             <div className="flex justify-center animate-fadeInUp" style={{ animationDelay: '0.25s' }}>
               {/* /images/products/cleinbot-m79/hero-robot.png */}
-              <Image src="https://placehold.co/520x520/FFFFFF/00D4AA?text=CLEINBOT+M79" alt="CLEINBOT M79" width={520} height={520} priority className="drop-shadow-2xl animate-float w-full max-w-md" />
+              <Image src="/images/products/cleinbot-m79/hero-robot.png" alt="CLEINBOT M79" width={520} height={520} priority className="drop-shadow-2xl animate-float w-full max-w-md" />
             </div>
           </div>
         </div>
@@ -129,7 +129,7 @@ export default function CleinbotM79Page() {
           </div>
           <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-14 items-start">
             {/* /images/products/cleinbot-m79/tech-drawing.png */}
-            <Image src="https://placehold.co/560x700/F0FDFA/00D4AA?text=CLEINBOT+M79+Technical+Drawing" alt="CLEINBOT M79 Technical Drawing" width={560} height={700} className="w-full rounded-2xl shadow-lg" />
+            <Image src="/images/products/cleinbot-m79/tech-drawing.png" alt="CLEINBOT M79 Technical Drawing" width={560} height={700} className="w-full rounded-2xl shadow-lg" />
             <div>
               {specs.map(([label, value, highlight]) => (
                 <div key={String(label)} className="flex border-b border-line py-3.5 px-3 rounded-lg hover:bg-teal-light/30 transition-colors">
@@ -138,9 +138,9 @@ export default function CleinbotM79Page() {
                 </div>
               ))}
               <div className="mt-7">
-                <button onClick={openModal} className="w-full bg-teal text-white py-4 rounded-xl font-bold hover:bg-teal-hover transition text-center flex items-center justify-center gap-2">
+                <a href="/pdfs/ubtech-cleinbot-m79-professional-cleaning-robots-for-public-space.pdf" download className="w-full bg-teal text-white py-4 rounded-xl font-bold hover:bg-teal-hover transition text-center flex items-center justify-center gap-2 no-underline block">
                   📥 Download Full Datasheet (PDF)
-                </button>
+                </a>
               </div>
             </div>
           </div>
@@ -159,7 +159,7 @@ export default function CleinbotM79Page() {
               <div key={sc.title} className="bg-white rounded-2xl overflow-hidden border border-line card-hover">
                 <div className="h-44 relative">
                   {/* /images/products/cleinbot-m79/scenario-{name}.jpg */}
-                  <Image src={`https://placehold.co/360x176/F0FDFA/00D4AA?text=${encodeURIComponent(sc.title)}`} alt={sc.title} fill className="object-cover" />
+                  <Image src={sc.img} alt={sc.title} fill className="object-cover" />
                 </div>
                 <div className="p-5">
                   <h3 className="font-bold text-ink mb-3 text-base">{sc.title}</h3>
@@ -212,7 +212,7 @@ export default function CleinbotM79Page() {
             {related.map((r) => (
               <div key={r.name} className="bg-white rounded-2xl overflow-hidden border border-line card-hover">
                 <div className="h-48 bg-teal flex items-center justify-center p-6">
-                  <Image src={`https://placehold.co/300x280/FFFFFF/00D4AA?text=${encodeURIComponent(r.name)}`} alt={r.name} width={240} height={200} className="h-full w-auto object-contain" />
+                  <Image src={r.img} alt={r.name} width={240} height={200} className="h-full w-auto object-contain" />
                 </div>
                 <div className="p-6">
                   <h3 className="text-lg font-bold text-ink">{r.name}</h3>

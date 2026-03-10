@@ -282,7 +282,7 @@ export default function HomePage() {
                 <div className="h-56 flex items-center justify-center p-8 bg-surface-subtle">
                   {/* {p.img} — 替换为本地图片时更新 src */}
                   <Image
-                    src={`https://placehold.co/280x280/F1F5F9/94A3B8?text=${encodeURIComponent(p.name)}`}
+                    src={p.img}
                     alt={p.imgAlt}
                     width={220}
                     height={220}

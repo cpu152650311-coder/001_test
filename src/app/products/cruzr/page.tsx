@@ -20,10 +20,10 @@ const specs = [
 ]
 
 const scenarios = [
-  { title: 'Hotel Reception', points: ['Check-in guidance & floor directions', 'Concierge FAQ in guest\'s language', 'Upsell services with personalized offers'] },
-  { title: 'Retail & Showrooms', points: ['Product introduction & recommendations', 'Queue management & promotion display', 'CRM data integration for VIP customers'] },
-  { title: 'Exhibition Halls', points: ['Multilingual guided tours', 'Interactive exhibit explanations', 'Visitor flow analytics & heat maps'] },
-  { title: 'Corporate Lobbies', points: ['Visitor registration & badge printing', 'Meeting room wayfinding', 'Guest notification to host employee'] },
+  { title: 'Hotel Reception', img: '/images/products/cruzr/scene-hotel-reception.jpg', points: ['Check-in guidance & floor directions', 'Concierge FAQ in guest\'s language', 'Upsell services with personalized offers'] },
+  { title: 'Retail & Showrooms', img: '/images/products/cruzr/scene-retail-showroom.jpg', points: ['Product introduction & recommendations', 'Queue management & promotion display', 'CRM data integration for VIP customers'] },
+  { title: 'Exhibition Halls', img: '/images/products/cruzr/scene-exhibition-hall.jpg', points: ['Multilingual guided tours', 'Interactive exhibit explanations', 'Visitor flow analytics & heat maps'] },
+  { title: 'Corporate Lobbies', img: '/images/products/cruzr/scene-corporate-lobby.jpg', points: ['Visitor registration & badge printing', 'Meeting room wayfinding', 'Guest notification to host employee'] },
 ]
 
 const faqs = [
@@ -35,9 +35,9 @@ const faqs = [
 ]
 
 const related = [
-  { name: 'CADEBOT L100', cat: 'Smart Delivery Robot', desc: 'Autonomous food & goods delivery for restaurants and hotels.', href: '/products/cadebot-l100' },
-  { name: 'CLEINBOT M79', cat: 'Floor Cleaning Robot', desc: 'Intelligent 24/7 floor scrubbing for large commercial spaces.', href: '/products/cleinbot-m79' },
-  { name: 'CLEINBOT CC201', cat: 'Sweeping Robot', desc: 'All-weather outdoor sweeping for plazas and campuses.', href: '/products/cleinbot-cc201' },
+  { name: 'CADEBOT L100', img: '/images/home/cadebot-l100.png', cat: 'Smart Delivery Robot', desc: 'Autonomous food & goods delivery for restaurants and hotels.', href: '/products/cadebot-l100' },
+  { name: 'CLEINBOT M79', img: '/images/home/cleinbot-m79.png', cat: 'Floor Cleaning Robot', desc: 'Intelligent 24/7 floor scrubbing for large commercial spaces.', href: '/products/cleinbot-m79' },
+  { name: 'CLEINBOT CC201', img: '/images/home/cleinbot-cc201.png', cat: 'Sweeping Robot', desc: 'All-weather outdoor sweeping for plazas and campuses.', href: '/products/cleinbot-cc201' },
 ]
 
 export default function CruzrPage() {
@@ -82,7 +82,7 @@ export default function CruzrPage() {
             <div className="flex justify-center animate-fadeInUp" style={{ animationDelay: '0.25s' }}>
               {/* /images/products/cruzr/hero-robot.png */}
               <Image
-                src="https://placehold.co/480x680/FFFFFF/0066FF?text=CRUZR+Robot"
+                src="/images/products/cruzr/hero-robot.png"
                 alt="CRUZR Humanoid Service Robot"
                 width={480}
                 height={680}
@@ -137,7 +137,7 @@ export default function CruzrPage() {
           </div>
           <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-14 items-start">
             {/* /images/products/cruzr/tech-drawing.png */}
-            <Image src="https://placehold.co/560x700/EFF6FF/0066FF?text=CRUZR+Technical+Drawing" alt="CRUZR Technical Drawing" width={560} height={700} className="w-full rounded-2xl shadow-lg" />
+            <Image src="/images/products/cruzr/tech-drawing.png" alt="CRUZR Technical Drawing" width={560} height={700} className="w-full rounded-2xl shadow-lg" />
             <div>
               {specs.map(([label, value, highlight]) => (
                 <div key={String(label)} className="flex border-b border-line py-3.5 px-3 rounded-lg hover:bg-brand-light/30 transition-colors">
@@ -146,9 +146,9 @@ export default function CruzrPage() {
                 </div>
               ))}
               <div className="mt-7">
-                <button onClick={openModal} className="w-full bg-brand text-white py-4 rounded-xl font-bold hover:bg-brand-hover transition">
+                <a href="/pdfs/ubtech-cruzr-cloud-based-intelligent-commercial-service-robot.pdf" download className="w-full bg-brand text-white py-4 rounded-xl font-bold hover:bg-brand-hover transition text-center flex items-center justify-center gap-2 no-underline block">
                   📥 Download Full Datasheet (PDF)
-                </button>
+                </a>
               </div>
             </div>
           </div>
@@ -168,7 +168,7 @@ export default function CruzrPage() {
               <div key={sc.title} className="bg-white rounded-2xl overflow-hidden border border-line card-hover">
                 <div className="h-44 relative">
                   {/* /images/products/cruzr/scenario-{name}.jpg */}
-                  <Image src={`https://placehold.co/360x176/EFF6FF/0066FF?text=${encodeURIComponent(sc.title)}`} alt={sc.title} fill className="object-cover" />
+                  <Image src={sc.img} alt={sc.title} fill className="object-cover" />
                 </div>
                 <div className="p-5">
                   <h3 className="font-bold text-ink mb-3 text-base">{sc.title}</h3>
@@ -193,7 +193,7 @@ export default function CruzrPage() {
             <div className="grid md:grid-cols-2">
               <div className="min-h-80 relative">
                 {/* /images/products/cruzr/case-airport.jpg */}
-                <Image src="https://placehold.co/640x480/1A1A1A/00D4AA?text=Paris+Airport+CRUZR" alt="Paris Airport CRUZR" fill className="object-cover" />
+                <Image src="/images/products/cruzr/case-airport.jpg" alt="Paris Airport CRUZR" fill className="object-cover" />
               </div>
               <div className="p-10 text-white flex flex-col justify-center">
                 <div className="inline-flex bg-white/20 px-4 py-1.5 rounded-full text-sm font-semibold mb-5 w-fit">✈️ Featured Case Study</div>
@@ -252,7 +252,7 @@ export default function CruzrPage() {
             {related.map((r) => (
               <div key={r.name} className="bg-white rounded-2xl overflow-hidden border border-line card-hover">
                 <div className="h-48 hero-gradient flex items-center justify-center p-6">
-                  <Image src={`https://placehold.co/300x280/FFFFFF/0066FF?text=${encodeURIComponent(r.name)}`} alt={r.name} width={240} height={200} className="h-full w-auto object-contain" />
+                  <Image src={r.img} alt={r.name} width={240} height={200} className="h-full w-auto object-contain" />
                 </div>
                 <div className="p-6">
                   <h3 className="text-lg font-bold text-ink">{r.name}</h3>
