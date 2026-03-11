@@ -66,19 +66,19 @@ const solutions = [
   {
     title: 'Hospitality',
     desc: 'Automate in-room delivery, concierge, and lobby service — reduce operating costs by up to 35%.',
-    img: 'https://placehold.co/600x400/EFF6FF/0066FF?text=Hospitality+Solution', // → /images/home/solution-hospitality.jpg
+    img: '/images/home/solution-hospitality.jpg',
     icon: '🏨',
   },
   {
     title: 'Healthcare',
     desc: 'Contactless medication delivery, patient guidance, and cleaning in clinical environments.',
-    img: 'https://placehold.co/600x400/F0FDFA/00D4AA?text=Healthcare+Solution', // → /images/home/solution-healthcare.jpg
+    img: '/images/home/solution-healthcare.jpg',
     icon: '🏥',
   },
   {
     title: 'Commercial & Retail',
     desc: 'Boost customer experience with AI-powered product navigation and autonomous floor cleaning.',
-    img: 'https://placehold.co/600x400/EFF6FF/0066FF?text=Commercial+Solution', // → /images/home/solution-commercial.jpg
+    img: '/images/home/solution-commercial.jpg',
     icon: '🏢',
   },
 ]
@@ -117,21 +117,21 @@ const news = [
     tag: 'Product',
     title: 'CADEBOT L100 Gen 2 Launches with 60% Improved Battery Life',
     summary: 'The new generation features a 48V lithium pack and smart charging, enabling 20-hour continuous operation.',
-    img: 'https://placehold.co/600x380/EFF6FF/0066FF?text=CADEBOT+Gen+2', // → /images/home/news-cadebot-gen2.jpg
+    img: '/images/home/news-cadebot-gen2.jpg',
   },
   {
     date: 'Jan 2025',
     tag: 'Partnership',
     title: 'UBTECH Signs Strategic Partnership with Siemens Smart Infrastructure',
     summary: 'The collaboration will integrate UBTECH robots into Siemens building management systems across 30+ countries.',
-    img: 'https://placehold.co/600x380/F0FDFA/00D4AA?text=Siemens+Partnership', // → /images/home/news-siemens-partnership.jpg
+    img: '/images/home/news-siemens-partnership.jpg',
   },
   {
     date: 'Dec 2024',
     tag: 'Award',
     title: 'CLEINBOT M79 Wins CES 2025 Innovation Award in Robotics Category',
     summary: 'Recognized for breakthrough autonomous navigation and industry-leading cleaning efficiency.',
-    img: 'https://placehold.co/600x380/EFF6FF/0066FF?text=CES+2025+Award', // → /images/home/news-ces2025-award.jpg
+    img: '/images/home/news-ces2025-award.jpg',
   },
 ]
 
@@ -204,19 +204,18 @@ export default function HomePage() {
               </div>
             </div>
 
-            {/* Right: Hero image */}
+            {/* Right: Hero image — 1:1 方框，渐入无浮动 */}
             <div className="relative animate-fadeInUp" style={{ animationDelay: '0.25s' }}>
-              <div className="relative rounded-3xl overflow-hidden"
+              <div className="relative rounded-3xl overflow-hidden aspect-square max-w-[560px] mx-auto"
                 style={{ background: 'linear-gradient(135deg, #EFF6FF 0%, #F0FDFA 100%)' }}>
-                <div className="p-8">
-                  {/* /images/home/hero-robot.png */}
+                <div className="p-6">
                   <Image
                     src="/images/home/hero-robot.png"
                     alt="UBTECH AI Service Robot"
                     width={560}
                     height={560}
                     priority
-                    className="w-full object-contain drop-shadow-2xl animate-float"
+                    className="w-full h-full object-contain animate-fadeIn"
                   />
                 </div>
               </div>
@@ -279,14 +278,13 @@ export default function HomePage() {
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {products.map((p) => (
               <div key={p.name} className="bg-white rounded-2xl border border-line card-hover overflow-hidden flex flex-col">
-                <div className="h-56 flex items-center justify-center p-8 bg-surface-subtle">
-                  {/* {p.img} — 替换为本地图片时更新 src */}
+                <div className="aspect-square w-full flex items-center justify-center p-5 bg-white">
                   <Image
                     src={p.img}
                     alt={p.imgAlt}
-                    width={220}
-                    height={220}
-                    className="h-full w-auto object-contain"
+                    width={280}
+                    height={280}
+                    className="w-full h-full object-contain"
                   />
                 </div>
                 <div className="p-6 flex flex-col flex-1">

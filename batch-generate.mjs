@@ -2,7 +2,11 @@ import fs from 'fs';
 import path from 'path';
 import https from 'https';
 
-const API_KEY = process.env.AIHUBMIX_API_KEY || '';
+const API_KEY = process.env.AIHUBMIX_API_KEY;
+if (!API_KEY) {
+  console.error('请设置环境变量 AIHUBMIX_API_KEY');
+  process.exit(1);
+}
 const PIC_DIR = 'C:/Users/Administrator/Downloads/pic';
 const OUT_BASE = 'C:/Users/Administrator/Downloads/001_test/public/images';
 
