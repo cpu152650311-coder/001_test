@@ -112,9 +112,8 @@ export default function TechnologyPage() {
 
             {/* Right: hero visual */}
             <div className="relative animate-fadeInUp" style={{ animationDelay: '0.2s' }}>
-              {/* /images/technology/hero-visual.jpg */}
               <Image
-                src="https://placehold.co/600x700/1A1A1A/00D4AA?text=AI+Robot+Brain+3D+Render"
+                src="/images/technology/hero-visual.jpg"
                 alt="AI Technology Visualization"
                 width={600}
                 height={700}
@@ -206,9 +205,8 @@ export default function TechnologyPage() {
             </div>
 
             <div className="relative">
-              {/* /images/technology/rd-lab.jpg */}
               <Image
-                src="https://placehold.co/640x720/0066FF/FFFFFF?text=R%26D+Lab+%26+Patents+Visual"
+                src="/images/technology/rd-lab.jpg"
                 alt="UBTECH R&D Lab"
                 width={640}
                 height={720}
@@ -273,9 +271,9 @@ export default function TechnologyPage() {
               <button onClick={openModal} className="inline-flex items-center justify-center bg-white text-brand px-10 py-4 rounded-xl font-bold text-lg hover:shadow-2xl hover:-translate-y-1 transition-all">
                 Schedule Tech Consultation
               </button>
-              <Link href="/support" className="inline-flex items-center justify-center border-2 border-white/50 text-white px-10 py-4 rounded-xl font-bold text-lg hover:bg-white/10 transition-all">
+              <button onClick={openModal} className="inline-flex items-center justify-center border-2 border-white/50 text-white px-10 py-4 rounded-xl font-bold text-lg hover:bg-white/10 transition-all">
                 Developer Support →
-              </Link>
+              </button>
             </div>
             <p className="text-white/50 text-sm">✅ Open API Access &nbsp;•&nbsp; ✅ Technology Licensing &nbsp;•&nbsp; ✅ Custom R&D</p>
           </div>

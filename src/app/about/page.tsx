@@ -60,12 +60,6 @@ const values = [
   { color: 'bg-teal', title: 'Speed & Adaptability', desc: 'In a rapidly evolving industry, agility is survival. We move fast, learn faster, and pivot decisively to seize opportunities and overcome challenges.', icon: 'M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z' },
 ]
 
-const leaders = [
-  { name: 'Zhou Jian', role: 'Founder & CEO', bio: 'Former robotics engineer at global tech giants. Founded UBTECH in 2012 with a vision to democratize humanoid robotics. Holds 200+ patents personally.', img: '/images/about/team-zhou-jian.jpg' },
-  { name: 'Dr. Li Wei', role: 'Chief Technology Officer', bio: 'PhD in Robotics from MIT. Previously led R&D at a leading global robotics firm. Oversees full-stack AI and robotics technology development.', img: '/images/about/team-li-wei.jpg' },
-  { name: 'Chen Mei', role: 'Chief Financial Officer', bio: 'Former CFO at a leading Chinese tech unicorn. Led UBTECH through multiple successful funding rounds. 20+ years experience in finance and capital markets.', img: '/images/about/team-chen-mei.jpg' },
-]
-
 const awards = [
   { title: 'CES Innovation Award', sub: '2019 · 2020 · 2021', icon: 'M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z' },
   { title: 'Red Dot Design Award', sub: 'Best of the Best 2020', icon: 'M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z' },
@@ -74,12 +68,12 @@ const awards = [
 ]
 
 const aboutPartners = [
-  { name: 'Tencent', src: 'https://placehold.co/160x60/F8FAFC/94A3B8?text=Tencent' },
-  { name: 'Huawei', src: 'https://placehold.co/160x60/F8FAFC/94A3B8?text=Huawei' },
-  { name: 'BYD', src: 'https://placehold.co/160x60/F8FAFC/94A3B8?text=BYD' },
-  { name: 'ICBC', src: 'https://placehold.co/160x60/F8FAFC/94A3B8?text=ICBC' },
-  { name: 'Haidilao', src: 'https://placehold.co/160x60/F8FAFC/94A3B8?text=Haidilao' },
-  { name: 'China Mobile', src: 'https://placehold.co/160x60/F8FAFC/94A3B8?text=China+Mobile' },
+  { name: 'Tencent', src: '/images/about/partner-tencent.webp' },
+  { name: 'Huawei', src: '/images/about/partner-huawei.webp' },
+  { name: 'China Mobile', src: '/images/about/partner-china-mobile.webp' },
+  { name: 'China Unicom', src: '/images/about/partner-china-unicom.webp' },
+  { name: 'ICBC', src: '/images/about/partner-icbc.webp' },
+  { name: 'Bank of China', src: '/images/about/partner-bank-of-china.webp' },
 ]
 
 export default function AboutPage() {
@@ -318,44 +312,6 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* ─── LEADERSHIP TEAM ──────────────────────────────────────────── */}
-      <section className="bg-white py-24">
-        <div className="container mx-auto px-6">
-          <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
-            <span className="inline-block text-xs font-bold uppercase tracking-widest text-teal bg-teal-light px-4 py-1.5 rounded-full">
-              Leadership
-            </span>
-            <h2 className="text-4xl md:text-5xl font-black text-ink">
-              Meet Our <span className="gradient-text">Leadership</span>
-            </h2>
-            <p className="text-xl text-ink-muted">
-              Visionary leaders with decades of combined experience in robotics, AI, and enterprise technology.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-10 max-w-5xl mx-auto">
-            {leaders.map((l) => (
-              <div key={l.name} className="bg-surface-subtle rounded-2xl overflow-hidden border border-line card-hover">
-                <div className="h-64 relative hero-gradient">
-                  {/* /images/about/team-*.jpg */}
-                  <Image
-                    src={`https://placehold.co/320x256/0066FF/FFFFFF?text=${encodeURIComponent(l.role)}`}
-                    alt={`${l.name} — ${l.role}`}
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-                <div className="p-6">
-                  <h3 className="text-xl font-bold text-ink mb-1">{l.name}</h3>
-                  <p className="text-brand font-semibold text-sm mb-3">{l.role}</p>
-                  <p className="text-ink-muted text-sm leading-relaxed">{l.bio}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* ─── AWARDS ───────────────────────────────────────────────────── */}
       <section className="py-24 bg-[#1A1A1A] text-white">
         <div className="container mx-auto px-6">
@@ -372,15 +328,14 @@ export default function AboutPage() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-5xl mx-auto">
             {awards.map((a) => (
               <div key={a.title}
-                className="bg-white/10 backdrop-blur-sm rounded-2xl p-7 text-center hover:scale-105 transition-transform duration-300 border border-white/10"
-                style={{ boxShadow: '0 0 30px rgba(0,212,170,0.15)' }}>
+                className="bg-white rounded-2xl p-7 text-center hover:scale-105 transition-transform duration-300 border border-line text-ink">
                 <div className="hero-gradient w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                   <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
                     <path d={a.icon} />
                   </svg>
                 </div>
-                <h4 className="font-bold text-base mb-1.5">{a.title}</h4>
-                <p className="text-xs text-white/50">{a.sub}</p>
+                <h4 className="font-bold text-base mb-1.5 text-ink">{a.title}</h4>
+                <p className="text-xs text-ink-muted">{a.sub}</p>
               </div>
             ))}
           </div>
@@ -444,7 +399,7 @@ export default function AboutPage() {
                 Explore Products
               </Link>
             </div>
-            <p className="text-white/50 text-sm">📞 +86 157xxxxxxxx &nbsp;|&nbsp; ✉️ info@huaxingrobot.com</p>
+            <p className="text-white/50 text-sm">✉️ info@huaxingrobot.com</p>
           </div>
         </div>
       </section>

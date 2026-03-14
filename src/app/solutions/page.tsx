@@ -11,7 +11,7 @@ const solutions = [
     tagColor: 'bg-brand text-white',
     desc: 'Revolutionize restaurant operations with AI-powered delivery robots. Reduce labor costs by 60%, increase table turnover by 40%.',
     features: ['Autonomous navigation & obstacle avoidance', 'Multi-table delivery capacity', 'POS & kitchen system integration'],
-    img: 'https://placehold.co/600x380/EFF6FF/0066FF?text=Smart+Catering', // → /images/solutions/smart-catering.jpg
+    img: '/images/solutions/smart-catering.jpg',
   },
   {
     title: 'Smart Cleaning Solution',
@@ -19,7 +19,7 @@ const solutions = [
     tagColor: 'bg-teal text-white',
     desc: '24/7 autonomous cleaning for airports, malls, offices. Cut cleaning costs by 50%, improve hygiene standards significantly.',
     features: ['Intelligent path planning & mapping', 'Multi-mode cleaning (scrub/vacuum/mop)', 'Cloud-based fleet management'],
-    img: 'https://placehold.co/600x380/F0FDFA/00D4AA?text=Smart+Cleaning', // → /images/solutions/smart-cleaning.jpg
+    img: '/images/solutions/smart-cleaning.jpg',
   },
   {
     title: 'Smart Exhibition Solution',
@@ -27,7 +27,7 @@ const solutions = [
     tagColor: 'bg-[#FF6B6B] text-white',
     desc: 'Enhance visitor experience with interactive guide robots. Multilingual support, AR content, 24/7 availability.',
     features: ['AI-powered voice interaction (10+ languages)', 'Guided tour & exhibition introduction', 'Visitor analytics & heat mapping'],
-    img: 'https://placehold.co/600x380/FFF5F5/FF6B6B?text=Smart+Exhibition', // → /images/solutions/smart-exhibition.jpg
+    img: '/images/solutions/smart-exhibition.jpg',
   },
   {
     title: 'Smart Logistics Solution',
@@ -35,7 +35,7 @@ const solutions = [
     tagColor: 'bg-[#FF9F43] text-white',
     desc: 'Optimize warehouse operations with intelligent material handling. Boost efficiency by 3x, reduce errors by 95%.',
     features: ['Autonomous picking & transporting', 'WMS/ERP system integration', 'Multi-robot fleet coordination'],
-    img: 'https://placehold.co/600x380/FFF8F0/FF9F43?text=Smart+Logistics', // → /images/solutions/smart-logistics.jpg
+    img: '/images/solutions/smart-logistics.jpg',
   },
   {
     title: 'Smart Healthcare Solution',
@@ -43,7 +43,7 @@ const solutions = [
     tagColor: 'bg-teal text-white',
     desc: 'Support medical staff with intelligent delivery & disinfection. Reduce infection risk, improve operational efficiency.',
     features: ['Medicine & medical supply delivery', 'UV-C disinfection capabilities', 'HIS/EMR system integration'],
-    img: 'https://placehold.co/600x380/F0FDFA/00D4AA?text=Smart+Healthcare', // → /images/solutions/smart-healthcare.jpg
+    img: '/images/solutions/smart-healthcare.jpg',
   },
   {
     title: 'Smart Retail Solution',
@@ -51,7 +51,7 @@ const solutions = [
     tagColor: 'bg-[#A29BFE] text-white',
     desc: 'Elevate shopping experience with interactive service robots. Product recommendations, inventory check, customer engagement.',
     features: ['AI-powered product recommendations', 'Customer behavior analytics', 'Promotional content display'],
-    img: 'https://placehold.co/600x380/F5F3FF/A29BFE?text=Smart+Retail', // → /images/solutions/smart-retail.jpg
+    img: '/images/solutions/smart-retail.jpg',
   },
 ]
 
@@ -75,7 +75,7 @@ const cases = [
     desc: 'Deployed 50+ CRUZR service robots for passenger guidance, info queries, and wayfinding.',
     metrics: [{ label: 'Passenger Satisfaction', value: '+35%' }, { label: 'Staff Workload', value: '-40%' }, { label: 'Languages Supported', value: '12+' }],
     color: 'from-brand to-brand-hover',
-    img: 'https://placehold.co/600x300/EFF6FF/0066FF?text=Paris+Airport+Case', // → /images/solutions/case-paris-airport.jpg
+    img: '/images/solutions/case-paris-airport.jpg',
   },
   {
     location: 'MANUFACTURING · SHENZHEN, CHINA',
@@ -83,7 +83,7 @@ const cases = [
     desc: 'Integrated 120+ logistics robots for material handling and inventory management.',
     metrics: [{ label: 'Operational Efficiency', value: '+250%' }, { label: 'Error Rate', value: '-95%' }, { label: 'ROI Achieved', value: '8 mo.' }],
     color: 'from-[#FF6B6B] to-[#FF9F43]',
-    img: 'https://placehold.co/600x300/FFF5F5/FF6B6B?text=BYD+Factory+Case', // → /images/solutions/case-byd-factory.jpg
+    img: '/images/solutions/case-byd-factory.jpg',
   },
   {
     location: 'HOSPITALITY · BEIJING, CHINA',
@@ -91,7 +91,7 @@ const cases = [
     desc: '30+ delivery robots serving 200+ tables daily in flagship location.',
     metrics: [{ label: 'Labor Cost Savings', value: '-60%' }, { label: 'Table Turnover', value: '+45%' }, { label: 'Satisfaction', value: '98.7%' }],
     color: 'from-teal to-teal-hover',
-    img: 'https://placehold.co/600x300/F0FDFA/00D4AA?text=Haidilao+Case', // → /images/solutions/case-haidilao.jpg
+    img: '/images/solutions/case-haidilao.jpg',
   },
 ]
 
@@ -155,7 +155,7 @@ export default function SolutionsPage() {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {solutions.map((s) => (
               <div key={s.title} className="bg-white rounded-2xl overflow-hidden border border-line card-hover flex flex-col">
-                <div className="h-52 relative">
+                <div className="aspect-[3/2] relative">
                   <Image src={s.img} alt={s.title} fill className="object-cover" />
                   <div className={`absolute top-4 right-4 ${s.tagColor} text-xs font-bold px-3 py-1.5 rounded-full`}>{s.tag}</div>
                 </div>
@@ -212,9 +212,9 @@ export default function SolutionsPage() {
           </div>
           <div className="grid md:grid-cols-3 gap-8">
             {cases.map((c) => (
-              <div key={c.name} className="bg-white rounded-2xl overflow-hidden border border-line card-hover">
-                <div className="h-44 relative overflow-hidden">
-                  <Image src={c.img} alt={c.name} fill className="object-cover" />
+              <div key={c.name} className="bg-white rounded-2xl overflow-hidden border border-line card-hover flex flex-col">
+                <div className="aspect-[2/1] relative overflow-hidden">
+                  <Image src={c.img} alt={c.name} fill className="object-cover object-center" />
                   <div className={`absolute inset-0 bg-gradient-to-b ${c.color} opacity-60`} />
                 </div>
                 <div className="p-7">

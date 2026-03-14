@@ -13,14 +13,14 @@ export default function Footer() {
       <div className="container mx-auto px-6">
         <div className="grid md:grid-cols-4 gap-12 mb-12">
 
-          {/* Company Info — 替换为本地文件时改 src 为 /images/home/logo-white.png */}
+          {/* Company Info — 白色 Logo，用于深色背景 */}
           <div>
             <Image
-              src="https://placehold.co/160x45/0066FF/FFFFFF?text=UBTECH&font=montserrat"
-              alt="UBTECH Robotics"
-              width={160}
-              height={45}
-              className="mb-4 h-10 w-auto"
+              src="/logo-white.png"
+              alt="AOMA FUTURE"
+              width={240}
+              height={70}
+              className="mb-4 h-14 w-auto object-contain"
             />
             <p className="text-sm mb-4 leading-relaxed">
               AI-powered service robots for hospitality, healthcare, and commercial environments. Trusted globally.
@@ -62,12 +62,6 @@ export default function Footer() {
               </li>
               <li className="flex items-start">
                 <svg className="w-5 h-5 mr-2 mt-0.5 flex-shrink-0 text-teal" fill="currentColor" viewBox="0 0 20 20">
-                  <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
-                </svg>
-                <span>+86 157xxxxxxxx</span>
-              </li>
-              <li className="flex items-start">
-                <svg className="w-5 h-5 mr-2 mt-0.5 flex-shrink-0 text-teal" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd"/>
                 </svg>
                 <span>Shenzhen, China</span>
@@ -87,12 +81,7 @@ export default function Footer() {
 
         {/* Copyright Bar */}
         <div className="border-t border-gray-700 pt-8 flex flex-col md:flex-row justify-between items-center text-sm">
-          <p>&copy; {year} UBTECH Robotics Corp. Ltd. All rights reserved.</p>
-          <div className="flex space-x-6 mt-4 md:mt-0">
-            <Link href="#" className="hover:text-teal transition-colors">Privacy Policy</Link>
-            <Link href="#" className="hover:text-teal transition-colors">Terms of Service</Link>
-            <Link href="/support" className="hover:text-teal transition-colors">Downloads</Link>
-          </div>
+          <p>&copy; {year} AOMA FUTURE. All rights reserved.</p>
         </div>
       </div>
     </footer>

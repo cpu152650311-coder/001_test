@@ -47,40 +47,39 @@ export default function CleinbotM79Page() {
     <main className="text-ink">
 
       {/* ─── HERO ───────────────────────────────────────────── */}
-      <section className="relative overflow-hidden text-white" style={{ background: 'linear-gradient(135deg, #00BF99, #0066FF)' }}>
-        <div className="absolute inset-0 dot-grid-bg opacity-10 pointer-events-none" />
+      <section className="relative product-hero-bg text-ink overflow-hidden">
+        <div className="absolute inset-0 dot-grid-bg opacity-[0.25] pointer-events-none" />
         <div className="container mx-auto px-6 py-24 relative z-10">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div className="space-y-7 animate-fadeInUp">
-              <div className="inline-flex items-center bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full text-sm font-semibold">
+            <div className="space-y-7">
+              <div className="inline-flex items-center bg-teal-light border border-teal/20 px-4 py-2 rounded-full text-sm font-semibold text-teal">
                 🌿 ISO 14001 Environmentally Certified
               </div>
               <h1 className="text-5xl md:text-6xl font-black leading-tight">
-                CLEINBOT M79<br /><span className="text-white/80">Smart Floor Cleaning Robot</span>
+                CLEINBOT M79<br /><span className="text-teal">Smart Floor Cleaning Robot</span>
               </h1>
-              <p className="text-xl text-white/85 leading-relaxed">
-                24/7 autonomous floor scrubbing for airports, malls, and hospitals. Cut cleaning costs by <strong className="text-white">50%</strong> and raise hygiene standards.
+              <p className="text-xl text-ink-muted leading-relaxed">
+                24/7 autonomous floor scrubbing for airports, malls, and hospitals. Cut cleaning costs by <strong className="text-teal">50%</strong> and raise hygiene standards.
               </p>
               <div className="flex flex-wrap gap-4">
                 {[['2,000 m²/h', 'Cleaning Rate'], ['8 h', 'Battery Life'], ['65 dB', 'Noise Level']].map(([v, l]) => (
-                  <div key={l} className="bg-white/15 backdrop-blur-sm px-6 py-3 rounded-xl">
-                    <div className="text-2xl font-black text-white">{v}</div>
-                    <div className="text-sm text-white/70">{l}</div>
+                  <div key={l} className="bg-surface-subtle border border-line px-6 py-3 rounded-xl">
+                    <div className="text-2xl font-black text-teal">{v}</div>
+                    <div className="text-sm text-ink-muted">{l}</div>
                   </div>
                 ))}
               </div>
               <div className="flex flex-col sm:flex-row gap-4">
-                <button onClick={openModal} className="inline-flex items-center justify-center bg-white text-teal px-8 py-4 rounded-xl font-bold text-lg hover:shadow-2xl hover:-translate-y-0.5 transition-all">
+                <button onClick={openModal} className="inline-flex items-center justify-center bg-teal text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-teal-hover hover:shadow-xl transition-all">
                   Request Demo →
                 </button>
-                <button onClick={() => document.getElementById('specs')?.scrollIntoView({ behavior: 'smooth' })} className="inline-flex items-center justify-center border-2 border-white/60 text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-white/10 transition-all">
+                <button onClick={() => document.getElementById('specs')?.scrollIntoView({ behavior: 'smooth' })} className="inline-flex items-center justify-center border-2 border-teal text-teal px-8 py-4 rounded-xl font-bold text-lg hover:bg-teal-light transition-all">
                   View Specs
                 </button>
               </div>
             </div>
-            <div className="flex justify-center animate-fadeInUp" style={{ animationDelay: '0.25s' }}>
-              {/* /images/products/cleinbot-m79/hero-robot.png */}
-              <Image src="/images/products/cleinbot-m79/hero-robot.png" alt="CLEINBOT M79" width={520} height={520} priority className="drop-shadow-2xl animate-float w-full max-w-md" />
+            <div className="flex justify-center hero-image-blend">
+              <Image src="/images/products/cleinbot-m79/hero-robot.png" alt="CLEINBOT M79" width={520} height={520} priority className="w-full max-w-md" />
             </div>
           </div>
         </div>
@@ -156,12 +155,11 @@ export default function CleinbotM79Page() {
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {scenarios.map((sc) => (
-              <div key={sc.title} className="bg-white rounded-2xl overflow-hidden border border-line card-hover">
-                <div className="h-44 relative">
-                  {/* /images/products/cleinbot-m79/scenario-{name}.jpg */}
+              <div key={sc.title} className="bg-white rounded-2xl overflow-hidden border border-line card-hover flex flex-col">
+                <div className="aspect-[3/2] relative">
                   <Image src={sc.img} alt={sc.title} fill className="object-cover" />
                 </div>
-                <div className="p-5">
+                <div className="p-5 flex-1 flex flex-col">
                   <h3 className="font-bold text-ink mb-3 text-base">{sc.title}</h3>
                   <ul className="space-y-1.5">
                     {sc.points.map((p) => (
@@ -210,11 +208,11 @@ export default function CleinbotM79Page() {
           <div className="text-center mb-12"><h2 className="text-4xl font-black text-ink">Complete Your Smart Service Fleet</h2></div>
           <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
             {related.map((r) => (
-              <div key={r.name} className="bg-white rounded-2xl overflow-hidden border border-line card-hover">
-                <div className="h-48 bg-teal flex items-center justify-center p-6">
-                  <Image src={r.img} alt={r.name} width={240} height={200} className="h-full w-auto object-contain" />
+              <div key={r.name} className="bg-white rounded-2xl overflow-hidden border border-line card-hover flex flex-col">
+                <div className="aspect-square bg-white flex items-center justify-center p-4">
+                  <Image src={r.img} alt={r.name} width={200} height={200} className="w-full h-full object-contain" />
                 </div>
-                <div className="p-6">
+                <div className="p-5 flex-1 flex flex-col">
                   <h3 className="text-lg font-bold text-ink">{r.name}</h3>
                   <p className="text-teal text-xs font-semibold mb-2">{r.cat}</p>
                   <p className="text-ink-muted text-sm mb-5">{r.desc}</p>
@@ -238,9 +236,6 @@ export default function CleinbotM79Page() {
             <button onClick={openModal} className="inline-flex items-center justify-center bg-white text-teal px-12 py-4 rounded-xl font-bold text-lg hover:shadow-2xl hover:-translate-y-1 transition-all">
               Get a Quote Now →
             </button>
-            <a href="tel:+86157xxxxxxxx" className="inline-flex items-center justify-center border-2 border-white/60 text-white px-12 py-4 rounded-xl font-bold text-lg hover:bg-white/10 transition-all">
-              📞 +86 157xxxxxxxx
-            </a>
           </div>
         </div>
       </section>

@@ -8,9 +8,9 @@ import Footer from "@/components/Footer";
 import InquiryModal from "@/components/InquiryModal";
 
 export const metadata: Metadata = {
-	title: "UBTECH Robotics - Humanoid & Smart Service Robots",
-	description: "UBTECH Robotics (9880.HK) - Global leader in humanoid robots and intelligent service robots. Explore CADEBOT, CLEINBOT, CRUZR solutions.",
-	icons: [{ rel: "icon", url: "/favicon.ico" }],
+	title: "AOMA FUTURE - Humanoid & Smart Service Robots",
+	description: "AOMA FUTURE - Global leader in humanoid robots and intelligent service robots. Explore CADEBOT, CLEINBOT, CRUZR solutions.",
+	icons: [{ rel: "icon", url: "/favicon.png", type: "image/png" }],
 };
 
 const inter = Inter({

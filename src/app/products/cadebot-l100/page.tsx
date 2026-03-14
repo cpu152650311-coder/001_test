@@ -48,46 +48,45 @@ export default function CadebotL100Page() {
     <main className="text-ink">
 
       {/* ─── HERO ───────────────────────────────────────────── */}
-      <section className="relative hero-gradient text-white overflow-hidden">
-        <div className="absolute inset-0 dot-grid-bg opacity-10 pointer-events-none" />
+      <section className="relative product-hero-bg text-ink overflow-hidden">
+        <div className="absolute inset-0 dot-grid-bg opacity-[0.25] pointer-events-none" />
         <div className="container mx-auto px-6 py-24 relative z-10">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div className="space-y-7 animate-fadeInUp">
-              <div className="inline-flex items-center bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full text-sm font-semibold">
+            <div className="space-y-7">
+              <div className="inline-flex items-center bg-brand-light border border-brand/20 px-4 py-2 rounded-full text-sm font-semibold text-brand">
                 🏆 2024 Red Dot Design Award Winner
               </div>
               <h1 className="text-5xl md:text-6xl font-black leading-tight">
                 CADEBOT L100<br /><span className="text-teal">Smart Delivery Robot</span>
               </h1>
-              <p className="text-xl text-white/85 leading-relaxed">
+              <p className="text-xl text-ink-muted leading-relaxed">
                 AI-powered autonomous delivery for restaurants, hotels, and hospitals. Reduce labor costs by <strong className="text-teal">40%</strong> while improving service efficiency.
               </p>
               <div className="flex flex-wrap gap-4">
                 {[['60 kg', 'Max Payload'], ['24 h', 'Continuous Work'], ['99.8%', 'Accuracy']].map(([v, l]) => (
-                  <div key={l} className="bg-white/15 backdrop-blur-sm px-6 py-3 rounded-xl">
-                    <div className="text-2xl font-black text-teal">{v}</div>
-                    <div className="text-sm text-white/75">{l}</div>
+                  <div key={l} className="bg-surface-subtle border border-line px-6 py-3 rounded-xl">
+                    <div className="text-2xl font-black text-brand">{v}</div>
+                    <div className="text-sm text-ink-muted">{l}</div>
                   </div>
                 ))}
               </div>
               <div className="flex flex-col sm:flex-row gap-4">
-                <button onClick={openModal} className="inline-flex items-center justify-center bg-white text-brand px-8 py-4 rounded-xl font-bold text-lg hover:shadow-2xl hover:-translate-y-0.5 transition-all">
+                <button onClick={openModal} className="inline-flex items-center justify-center bg-brand text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-brand-hover hover:shadow-xl transition-all">
                   Request Demo →
                 </button>
-                <button onClick={() => document.getElementById('specs')?.scrollIntoView({ behavior: 'smooth' })} className="inline-flex items-center justify-center border-2 border-white/60 text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-white/10 transition-all">
+                <button onClick={() => document.getElementById('specs')?.scrollIntoView({ behavior: 'smooth' })} className="inline-flex items-center justify-center border-2 border-brand text-brand px-8 py-4 rounded-xl font-bold text-lg hover:bg-brand-light transition-all">
                   View Specs
                 </button>
               </div>
             </div>
-            <div className="flex justify-center animate-fadeInUp" style={{ animationDelay: '0.25s' }}>
-              {/* /images/products/cadebot-l100/hero-robot.png */}
+            <div className="flex justify-center hero-image-blend">
               <Image
                 src="/images/products/cadebot-l100/hero-robot.png"
                 alt="CADEBOT L100 Smart Delivery Robot"
                 width={520}
                 height={620}
                 priority
-                className="drop-shadow-2xl animate-float w-full max-w-md"
+                className="w-full max-w-md"
               />
             </div>
           </div>
@@ -172,9 +171,8 @@ export default function CadebotL100Page() {
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {scenarios.map((sc, i) => (
-              <div key={sc.title} className="bg-white rounded-2xl overflow-hidden border border-line card-hover">
-                <div className="h-44 relative">
-                  {/* /images/products/cadebot-l100/scenario-{name}.jpg */}
+              <div key={sc.title} className="bg-white rounded-2xl overflow-hidden border border-line card-hover flex flex-col">
+                <div className="aspect-[3/2] relative">
                   <Image
                     src={sc.img}
                     alt={sc.title}
@@ -182,7 +180,7 @@ export default function CadebotL100Page() {
                     className="object-cover"
                   />
                 </div>
-                <div className="p-5">
+                <div className="p-5 flex-1 flex flex-col">
                   <h3 className="font-bold text-ink mb-3 text-base">{sc.title}</h3>
                   <ul className="space-y-1.5">
                     {sc.points.map((p) => (
@@ -202,14 +200,14 @@ export default function CadebotL100Page() {
       <section className="py-20 bg-surface-subtle">
         <div className="container mx-auto px-6">
           <div className="max-w-5xl mx-auto hero-gradient rounded-3xl overflow-hidden shadow-2xl">
-            <div className="grid md:grid-cols-2">
-              <div className="min-h-80 relative">
-                {/* /images/products/cadebot-l100/case-haidilao.jpg */}
+            <div className="grid md:grid-cols-[1.65fr_1fr] gap-0 md:items-stretch">
+              <div className="relative min-w-0 w-full aspect-[3/2]">
                 <Image
                   src="/images/products/cadebot-l100/case-haidilao.jpg"
                   alt="Haidilao Case Study"
                   fill
-                  className="object-cover"
+                  className="object-cover object-center"
+                  sizes="(max-width: 768px) 100vw, 62vw"
                 />
               </div>
               <div className="p-10 text-white flex flex-col justify-center">
@@ -270,11 +268,11 @@ export default function CadebotL100Page() {
           </div>
           <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
             {related.map((r) => (
-              <div key={r.name} className="bg-white rounded-2xl overflow-hidden border border-line card-hover">
-                <div className="h-48 hero-gradient flex items-center justify-center p-6">
-                  <Image src={r.img} alt={r.name} width={240} height={200} className="h-full w-auto object-contain" />
+              <div key={r.name} className="bg-white rounded-2xl overflow-hidden border border-line card-hover flex flex-col">
+                <div className="aspect-square bg-white flex items-center justify-center p-4">
+                  <Image src={r.img} alt={r.name} width={200} height={200} className="w-full h-full object-contain" />
                 </div>
-                <div className="p-6">
+                <div className="p-5 flex-1 flex flex-col">
                   <h3 className="text-lg font-bold text-ink">{r.name}</h3>
                   <p className="text-teal text-xs font-semibold mb-2">{r.cat}</p>
                   <p className="text-ink-muted text-sm mb-5">{r.desc}</p>
@@ -299,9 +297,6 @@ export default function CadebotL100Page() {
             <button onClick={openModal} className="inline-flex items-center justify-center bg-white text-brand px-12 py-4 rounded-xl font-bold text-lg hover:shadow-2xl hover:-translate-y-1 transition-all">
               Get a Quote Now →
             </button>
-            <a href="tel:+86157xxxxxxxx" className="inline-flex items-center justify-center border-2 border-white/60 text-white px-12 py-4 rounded-xl font-bold text-lg hover:bg-white/10 transition-all">
-              📞 Call: +86 157xxxxxxxx
-            </a>
           </div>
         </div>
       </section>

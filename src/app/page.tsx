@@ -5,18 +5,18 @@ import Image from 'next/image'
 import { useModalStore } from '@/store/modal'
 
 const partners = [
-  { name: 'Marriott', src: 'https://placehold.co/140x48/F1F5F9/94A3B8?text=Marriott' },
-  { name: 'Hilton', src: 'https://placehold.co/140x48/F1F5F9/94A3B8?text=Hilton' },
-  { name: 'IHG', src: 'https://placehold.co/140x48/F1F5F9/94A3B8?text=IHG' },
-  { name: 'Siemens', src: 'https://placehold.co/140x48/F1F5F9/94A3B8?text=Siemens' },
-  { name: 'Bosch', src: 'https://placehold.co/140x48/F1F5F9/94A3B8?text=Bosch' },
-  { name: 'Foxconn', src: 'https://placehold.co/140x48/F1F5F9/94A3B8?text=Foxconn' },
-  { name: 'SF Express', src: 'https://placehold.co/140x48/F1F5F9/94A3B8?text=SF+Express' },
-  { name: 'JD.com', src: 'https://placehold.co/140x48/F1F5F9/94A3B8?text=JD.com' },
-  { name: 'ByteDance', src: 'https://placehold.co/140x48/F1F5F9/94A3B8?text=ByteDance' },
-  { name: 'Alibaba', src: 'https://placehold.co/140x48/F1F5F9/94A3B8?text=Alibaba' },
-  { name: 'Ping An', src: 'https://placehold.co/140x48/F1F5F9/94A3B8?text=Ping+An' },
-  { name: 'CITIC', src: 'https://placehold.co/140x48/F1F5F9/94A3B8?text=CITIC' },
+  { name: 'Tencent', src: '/images/home/partner-tencent.webp' },
+  { name: 'Huawei', src: '/images/home/partner-huawei.webp' },
+  { name: 'China Mobile', src: '/images/home/partner-china-mobile.webp' },
+  { name: 'China Unicom', src: '/images/home/partner-china-unicom.webp' },
+  { name: 'China Telecom', src: '/images/home/partner-china-telecom.webp' },
+  { name: 'ICBC', src: '/images/home/partner-icbc.webp' },
+  { name: 'Bank of China', src: '/images/home/partner-bank-of-china.webp' },
+  { name: 'China Merchants Bank', src: '/images/home/partner-china-merchants-bank.webp' },
+  { name: 'HSBC', src: '/images/home/partner-hsbc.webp' },
+  { name: 'State Grid', src: '/images/home/partner-state-grid.webp' },
+  { name: 'Tsinghua University', src: '/images/home/partner-tsinghua.webp' },
+  { name: 'University of Sydney', src: '/images/home/partner-sydney.webp' },
 ]
 
 const products = [
@@ -339,8 +339,8 @@ export default function HomePage() {
 
           <div className="grid md:grid-cols-3 gap-8">
             {solutions.map((s) => (
-              <div key={s.title} className="bg-white rounded-2xl border border-line card-hover overflow-hidden group">
-                <div className="h-52 relative overflow-hidden">
+              <div key={s.title} className="bg-white rounded-2xl border border-line card-hover overflow-hidden group flex flex-col">
+                <div className="aspect-[3/2] relative overflow-hidden">
                   {/* /images/solutions/{slug}.jpg */}
                   <Image
                     src={s.img}
@@ -449,15 +449,12 @@ export default function HomePage() {
               </span>
               <h2 className="text-4xl font-black text-ink">News & Updates</h2>
             </div>
-            <Link href="/support" className="text-brand font-semibold hover:underline text-sm">
-              View all →
-            </Link>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
             {news.map((n) => (
-              <article key={n.title} className="bg-white rounded-2xl border border-line overflow-hidden card-hover">
-                <div className="h-48 relative">
+              <article key={n.title} className="bg-white rounded-2xl border border-line overflow-hidden card-hover flex flex-col">
+                <div className="aspect-[3/2] relative">
                   {/* /images/home/news-{slug}.jpg */}
                   <Image
                     src={n.img}

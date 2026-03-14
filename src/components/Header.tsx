@@ -34,16 +34,16 @@ export default function Header() {
       >
         <nav className="container mx-auto px-6 h-[70px] flex items-center justify-between gap-8">
 
-          {/* Logo — 替换为本地文件时改 src 为 /images/home/logo.webp */}
+          {/* Logo — 深蓝色，用于浅色背景 */}
           <div className="flex-shrink-0">
             <Link href="/" className="block">
               <Image
-                src="https://huaxingrobot.com/wp-content/uploads/2026/03/Logo2.webp"
-                alt="UBTECH Robotics"
-                width={200}
-                height={44}
+                src="/logo.png"
+                alt="AOMA FUTURE"
+                width={280}
+                height={70}
                 priority
-                style={{ height: 38, width: 'auto', objectFit: 'contain' }}
+                className="h-[52px] w-auto object-contain"
               />
             </Link>
           </div>
@@ -124,7 +124,6 @@ export default function Header() {
             <li><Link href="/solutions" className="nav-link">Solutions</Link></li>
             <li><Link href="/technology" className="nav-link">Technology</Link></li>
             <li><Link href="/about" className="nav-link">About Us</Link></li>
-            <li><Link href="/support" className="nav-link">Support</Link></li>
           </ul>
 
           {/* Right: CTA + Mobile Toggle */}
@@ -177,7 +176,6 @@ export default function Header() {
                 <li><Link href="/solutions" className="block py-2.5 text-sm font-medium text-gray-700 border-b border-black/[0.04] hover:text-[#0066FF] transition-colors">Solutions</Link></li>
                 <li><Link href="/technology" className="block py-2.5 text-sm font-medium text-gray-700 border-b border-black/[0.04] hover:text-[#0066FF] transition-colors">Technology</Link></li>
                 <li><Link href="/about" className="block py-2.5 text-sm font-medium text-gray-700 border-b border-black/[0.04] hover:text-[#0066FF] transition-colors">About Us</Link></li>
-                <li><Link href="/support" className="block py-2.5 text-sm font-medium text-gray-700 border-b border-black/[0.04] hover:text-[#0066FF] transition-colors">Support</Link></li>
                 <li className="pt-2">
                   <button onClick={openModal} className="w-full header-cta-btn text-center">
                     Get a Quote
