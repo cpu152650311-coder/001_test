@@ -33,7 +33,7 @@ const products = [
   {
     name: 'CLEINBOT M79',
     badge: 'Cleaning',
-    badgeColor: 'bg-teal-light text-teal',
+    badgeColor: 'bg-teal-light text-teal-dark',
     desc: 'Intelligent floor-cleaning robot for large commercial spaces.',
     features: ['2,000 m²/h efficiency', 'Auto-return docking', 'Multi-surface support'],
     href: '/products/cleinbot-m79',
@@ -43,7 +43,7 @@ const products = [
   {
     name: 'CLEINBOT CC201',
     badge: 'Sweeping',
-    badgeColor: 'bg-teal-light text-teal',
+    badgeColor: 'bg-teal-light text-teal-dark',
     desc: 'Commercial sweeping robot with deep-clean capabilities for outdoor & indoor areas.',
     features: ['AI path planning', 'Auto dust-bin emptying', 'Weather-resistant'],
     href: '/products/cleinbot-cc201',
@@ -215,6 +215,7 @@ export default function HomePage() {
                     width={560}
                     height={560}
                     priority
+                    sizes="(max-width: 1024px) 90vw, 560px"
                     className="w-full h-full object-contain animate-fadeIn"
                   />
                 </div>
@@ -306,6 +307,7 @@ export default function HomePage() {
                   <div className="flex gap-2 mt-auto">
                     <Link
                       href={p.href}
+                      aria-label={`Learn more about ${p.name}`}
                       className="flex-1 text-center border border-line text-ink text-sm font-semibold py-2.5 rounded-lg hover:border-brand hover:text-brand transition-colors"
                     >
                       Learn More
@@ -328,7 +330,7 @@ export default function HomePage() {
       <section className="bg-white py-24">
         <div className="container mx-auto px-6">
           <div className="text-center mb-16 space-y-4">
-            <span className="inline-block text-xs font-bold uppercase tracking-widest text-teal bg-teal-light px-4 py-1.5 rounded-full">
+            <span className="inline-block text-xs font-bold uppercase tracking-widest text-teal-dark bg-teal-light px-4 py-1.5 rounded-full">
               Solutions
             </span>
             <h2 className="text-4xl font-black text-ink">Built for Your Industry</h2>
@@ -407,7 +409,7 @@ export default function HomePage() {
         <div className="container mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div className="space-y-6">
-              <span className="inline-block text-xs font-bold uppercase tracking-widest text-teal bg-teal-light px-4 py-1.5 rounded-full">
+              <span className="inline-block text-xs font-bold uppercase tracking-widest text-teal-dark bg-teal-light px-4 py-1.5 rounded-full">
                 Core Technology
               </span>
               <h2 className="text-4xl font-black text-ink">
@@ -430,7 +432,7 @@ export default function HomePage() {
               {techHighlights.map((t) => (
                 <div key={t.title} className="bg-surface-subtle rounded-2xl p-6 border border-line hover:border-brand/30 hover:bg-brand-light/30 transition-all duration-200">
                   <div className="text-3xl mb-4">{t.icon}</div>
-                  <h4 className="font-bold text-ink mb-2">{t.title}</h4>
+                  <h3 className="font-bold text-ink mb-2">{t.title}</h3>
                   <p className="text-sm text-ink-muted leading-relaxed">{t.desc}</p>
                 </div>
               ))}

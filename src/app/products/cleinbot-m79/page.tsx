@@ -136,11 +136,6 @@ export default function CleinbotM79Page() {
                   <div className={`w-1/2 text-sm ${highlight ? 'font-bold text-teal' : 'text-ink'}`}>{String(value)}</div>
                 </div>
               ))}
-              <div className="mt-7">
-                <a href="/pdfs/ubtech-cleinbot-m79-professional-cleaning-robots-for-public-space.pdf" download className="w-full bg-teal text-white py-4 rounded-xl font-bold hover:bg-teal-hover transition text-center flex items-center justify-center gap-2 no-underline block">
-                  📥 Download Full Datasheet (PDF)
-                </a>
-              </div>
             </div>
           </div>
         </div>

@@ -151,11 +151,6 @@ export default function CadebotL100Page() {
                   <div className={`w-1/2 text-sm ${highlight ? 'font-bold text-brand' : 'text-ink'}`}>{String(value)}</div>
                 </div>
               ))}
-              <div className="mt-7">
-                <a href="/pdfs/ubtech-cadebot-l100-multi-scene-intelligent-delivery-robot.pdf" download className="w-full bg-ink text-white py-4 rounded-xl font-bold hover:bg-ink-muted transition text-center flex items-center justify-center gap-2 no-underline">
-                  📥 Download Full Datasheet (PDF)
-                </a>
-              </div>
             </div>
           </div>
         </div>

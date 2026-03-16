@@ -59,7 +59,7 @@ export default function InquiryModal() {
         {/* Form Body */}
         <div className="modal-body">
           <form
-            action="https://formsubmit.co/0939ddf4c80157259be95797bb7d95b8"
+            action="https://formsubmit.co/3ad82ea13d809fc02ae68f17c2ef5603"
             method="POST"
           >
             {/* FormSubmit hidden config */}

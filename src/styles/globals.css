@@ -28,11 +28,12 @@
 	--color-teal-hover:       #00BF99;
 	--color-teal-light:       #F0FDFA;
 	--color-teal-foreground:  #ffffff;
+	--color-teal-dark:        #007A69; /* 深色文字专用，对比度 4.9:1 on white */
 
 	/* --- Ink (文字层级) -------------- */
 	--color-ink:              #0F172A;   /* 主文字 */
 	--color-ink-muted:        #64748B;   /* 次级文字 */
-	--color-ink-subtle:       #94A3B8;   /* 辅助文字 / placeholder */
+	--color-ink-subtle:       #6B7280;   /* 辅助文字 / placeholder，对比度 4.6:1 on white */
 
 	/* --- Surface (背景层级) ---------- */
 	--color-surface:          #ffffff;
@@ -183,8 +184,8 @@
   50%       { transform: translateY(-20px); }
 }
 @keyframes pulseGlow {
-  0%, 100% { box-shadow: 0 0 20px rgba(0, 102, 255, 0.3); }
-  50%       { box-shadow: 0 0 40px rgba(0, 212, 170, 0.5); }
+  0%, 100% { filter: drop-shadow(0 0 8px rgba(0, 102, 255, 0.45)); }
+  50%       { filter: drop-shadow(0 0 16px rgba(0, 212, 170, 0.55)); }
 }
 
 .animate-fadeInUp   { animation: fadeInUp 0.8s ease-out; }

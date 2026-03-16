@@ -144,11 +144,6 @@ export default function CruzrPage() {
                   <div className={`w-1/2 text-sm ${highlight ? 'font-bold text-brand' : 'text-ink'}`}>{String(value)}</div>
                 </div>
               ))}
-              <div className="mt-7">
-                <a href="/pdfs/ubtech-cruzr-cloud-based-intelligent-commercial-service-robot.pdf" download className="w-full bg-brand text-white py-4 rounded-xl font-bold hover:bg-brand-hover transition text-center flex items-center justify-center gap-2 no-underline block">
-                  📥 Download Full Datasheet (PDF)
-                </a>
-              </div>
             </div>
           </div>
         </div>

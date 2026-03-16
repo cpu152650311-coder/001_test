@@ -29,7 +29,7 @@ export default function Footer() {
 
           {/* Products Menu */}
           <div>
-            <h4 className="text-white font-bold mb-4">Products</h4>
+            <h3 className="text-white font-bold mb-4">Products</h3>
             <ul className="space-y-2 text-sm">
               <li><Link href="/products/cadebot-l100" className="hover:text-teal transition-colors">CADEBOT L100</Link></li>
               <li><Link href="/products/cleinbot-m79" className="hover:text-teal transition-colors">CLEINBOT M79</Link></li>
@@ -40,7 +40,7 @@ export default function Footer() {
 
           {/* Solutions Menu */}
           <div>
-            <h4 className="text-white font-bold mb-4">Solutions</h4>
+            <h3 className="text-white font-bold mb-4">Solutions</h3>
             <ul className="space-y-2 text-sm">
               <li><Link href="/solutions" className="hover:text-teal transition-colors">Smart Catering</Link></li>
               <li><Link href="/solutions" className="hover:text-teal transition-colors">Smart Cleaning</Link></li>
@@ -51,7 +51,7 @@ export default function Footer() {
 
           {/* Contact */}
           <div>
-            <h4 className="text-white font-bold mb-4">Contact Us</h4>
+            <h3 className="text-white font-bold mb-4">Contact Us</h3>
             <ul className="space-y-3 text-sm">
               <li className="flex items-start">
                 <svg className="w-5 h-5 mr-2 mt-0.5 flex-shrink-0 text-teal" fill="currentColor" viewBox="0 0 20 20">
@@ -62,9 +62,15 @@ export default function Footer() {
               </li>
               <li className="flex items-start">
                 <svg className="w-5 h-5 mr-2 mt-0.5 flex-shrink-0 text-teal" fill="currentColor" viewBox="0 0 20 20">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+                </svg>
+                <a href="tel:+8618928864959" className="hover:text-teal transition-colors">+86 189 2886 4959</a>
+              </li>
+              <li className="flex items-start">
+                <svg className="w-5 h-5 mr-2 mt-0.5 flex-shrink-0 text-teal" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd"/>
                 </svg>
-                <span>Shenzhen, China</span>
+                <span>Room C602, Nanchang Jianyu Industrial Park (Phase 1), Chuangye Road, Bao&apos;an District, Shenzhen, Guangdong Province, 518126, China</span>
               </li>
             </ul>
             <button
