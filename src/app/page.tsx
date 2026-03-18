@@ -122,8 +122,8 @@ const news = [
   {
     date: 'Jan 2025',
     tag: 'Partnership',
-    title: 'UBTECH Signs Strategic Partnership with Siemens Smart Infrastructure',
-    summary: 'The collaboration will integrate UBTECH robots into Siemens building management systems across 30+ countries.',
+    title: 'AOMAN FUTURE Signs Strategic Partnership with Siemens Smart Infrastructure',
+    summary: 'The collaboration will integrate AOMAN FUTURE robots into Siemens building management systems across 30+ countries.',
     img: '/images/home/news-siemens-partnership.jpg',
   },
   {
@@ -211,7 +211,7 @@ export default function HomePage() {
                 <div className="p-6">
                   <Image
                     src="/images/home/hero-robot.png"
-                    alt="UBTECH AI Service Robot"
+                    alt="AOMAN FUTURE AI Service Robot"
                     width={560}
                     height={560}
                     priority

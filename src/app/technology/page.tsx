@@ -207,7 +207,7 @@ export default function TechnologyPage() {
             <div className="relative">
               <Image
                 src="/images/technology/rd-lab.jpg"
-                alt="UBTECH R&D Lab"
+                alt="AOMAN FUTURE R&D Lab"
                 width={640}
                 height={720}
                 className="rounded-2xl shadow-2xl w-full"

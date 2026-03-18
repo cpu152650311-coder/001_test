@@ -121,7 +121,7 @@ export default function SolutionsPage() {
               <span className="text-teal">Intelligent Robotics</span>
             </h1>
             <p className="text-xl md:text-2xl mb-10 text-white/85 leading-relaxed max-w-3xl mx-auto">
-              From smart catering to intelligent cleaning, UBTECH provides end-to-end automation solutions
+              From smart catering to intelligent cleaning, AOMAN FUTURE provides end-to-end automation solutions
               trusted by 1,000+ enterprises worldwide.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -236,12 +236,12 @@ export default function SolutionsPage() {
         </div>
       </section>
 
-      {/* ─── WHY UBTECH ─────────────────────────────────────── */}
+      {/* ─── WHY AOMAN FUTURE ───────────────────────────────── */}
       <section className="py-24 bg-white">
         <div className="container mx-auto px-6">
           <div className="text-center mb-14 space-y-4">
             <span className="inline-block text-xs font-bold uppercase tracking-widest text-brand bg-brand-light px-4 py-1.5 rounded-full">Why Us</span>
-            <h2 className="text-4xl font-black text-ink">Why Leading Enterprises Choose UBTECH</h2>
+            <h2 className="text-4xl font-black text-ink">Why Leading Enterprises Choose AOMAN FUTURE</h2>
             <p className="text-xl text-ink-muted">Full-stack technology, proven expertise, global support.</p>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-7 max-w-6xl mx-auto">
@@ -263,7 +263,7 @@ export default function SolutionsPage() {
         <div className="container mx-auto px-6 relative z-10 text-center">
           <div className="max-w-3xl mx-auto space-y-7">
             <h2 className="text-4xl lg:text-5xl font-black text-white">Ready to Transform Your Business?</h2>
-            <p className="text-xl text-white/80">Join 1,000+ enterprises who trusted UBTECH to automate operations, reduce costs, and delight customers.</p>
+            <p className="text-xl text-white/80">Join 1,000+ enterprises who trust AOMAN FUTURE to automate operations, reduce costs, and delight customers.</p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <button onClick={openModal} className="inline-flex items-center justify-center bg-white text-brand px-10 py-4 rounded-xl font-bold text-lg hover:shadow-2xl hover:-translate-y-1 transition-all">
                 Get Custom Solution →

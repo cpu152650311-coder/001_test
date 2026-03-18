@@ -28,9 +28,9 @@ const scenarios = [
 
 const faqs = [
   { q: 'How does CRUZR handle unfamiliar questions?', a: 'CRUZR uses a tiered response system: first it checks the configured knowledge base, then its general AI model. If it cannot answer, it gracefully escalates to a human agent or offers an alternative action, ensuring the conversation never dead-ends.' },
-  { q: 'Can CRUZR be customized to match our brand?', a: 'Yes. CRUZR\'s chest screen, LED face display, and voice persona are all configurable. Branded uniforms, logos, and custom interaction scripts can be set up via the UBTECH Cloud dashboard without coding.' },
+  { q: 'Can CRUZR be customized to match our brand?', a: 'Yes. CRUZR\'s chest screen, LED face display, and voice persona are all configurable. Branded uniforms, logos, and custom interaction scripts can be set up via the AOMAN FUTURE cloud dashboard without coding.' },
   { q: 'How secure is the face recognition data?', a: 'All biometric data is encrypted at rest and in transit. GDPR-compliant data retention policies are included. Face data can optionally be stored exclusively on-premise with no cloud sync.' },
-  { q: 'Can multiple CRUZR units work together?', a: 'Yes. UBTECH\'s fleet management platform allows centralized scheduling, task assignment, and performance monitoring across unlimited CRUZR units. Units can hand off guests between each other in large venues.' },
+  { q: 'Can multiple CRUZR units work together?', a: 'Yes. AOMAN FUTURE\'s fleet management platform allows centralized scheduling, task assignment, and performance monitoring across unlimited CRUZR units. Units can hand off guests between each other in large venues.' },
   { q: 'What ongoing software support is included?', a: 'All CRUZR units receive free OTA updates for the 2-year warranty period. Extended software maintenance plans are available. Our developer community and API documentation are publicly accessible.' },
 ]
 

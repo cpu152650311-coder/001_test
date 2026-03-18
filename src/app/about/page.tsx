@@ -15,7 +15,7 @@ const timeline = [
   {
     year: '2012',
     title: 'Company Founded',
-    desc: 'UBTECH Robotics established in Shenzhen, China, with a mission to bring intelligent humanoid robots into daily life. Initial focus on servo motor technology.',
+    desc: 'AOMAN FUTURE was established in Shenzhen, China, with a mission to bring intelligent humanoid robots into daily life. Initial focus on servo motor technology.',
     accent: 'brand',
   },
   {
@@ -100,7 +100,7 @@ export default function AboutPage() {
           </h1>
 
           <p className="text-xl md:text-2xl mb-10 text-white/85 leading-relaxed max-w-3xl mx-auto">
-            Since 2012, UBTECH Robotics has been at the forefront of humanoid robots and AI-powered
+            Since 2012, AOMAN FUTURE has been at the forefront of humanoid robots and AI-powered
             service robotics, revolutionizing industries with cutting-edge innovation and full-stack technology.
           </p>
 
@@ -383,7 +383,7 @@ export default function AboutPage() {
             </h2>
             <p className="text-xl text-white/80 leading-relaxed">
               Join 50+ Fortune 500 companies and 50,000+ deployed robots worldwide.
-              Let&apos;s discuss how UBTECH can revolutionize your operations.
+              Let&apos;s discuss how AOMAN FUTURE can revolutionize your operations.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <button
@@ -399,7 +399,7 @@ export default function AboutPage() {
                 Explore Products
               </Link>
             </div>
-            <p className="text-white/50 text-sm">✉️ info@huaxingrobot.com</p>
+            <p className="text-white/50 text-sm">✉️ info@aomanbot.com</p>
           </div>
         </div>
       </section>

@@ -39,7 +39,7 @@ export default function Header() {
             <Link href="/" className="block">
               <Image
                 src="/logo.png"
-                alt="AOMA FUTURE"
+                alt="AOMAN FUTURE"
                 width={280}
                 height={70}
                 priority
